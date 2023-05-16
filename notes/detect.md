@@ -1,0 +1,1 @@
+- https://github.com/w3c/media-capabilities/blob/main/explainer.md#hdr

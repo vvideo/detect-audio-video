@@ -1,0 +1,8 @@
+{
+  "exclude": ["example", "./dist/**/*", "src/**/*.test.ts"],
+  "extends": "./tsconfig.common.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist"
+  },
+}

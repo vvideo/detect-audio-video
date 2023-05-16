@@ -1,0 +1,2 @@
+- https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter
+- https://developer.nvidia.com/video-codec-sdk
