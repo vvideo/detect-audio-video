@@ -9,8 +9,7 @@ Detect audio and video features in browser.
 ## [Demo](https://vvideo.github.io/caniwatchvideo)
 
 ## Features
-- Support for media formats
-- Screen
+- 🖥️ Screen
   + Name
   + Size
   + [Aspect ratio](https://github.com/vvideo/calc-aspect-ratio)
@@ -18,26 +17,26 @@ Detect audio and video features in browser.
   + HDR support
   + Wide gamut
   + Color spaces
-- GPU
+- ⚙️ GPU
   + Vendor
   + Renderer
-- DRM
+- 🔒 DRM
   + Microsoft PlayReady SL150, SL2000, SL3000
   + Google Widevine Modular L1, L3
   + Apple FairPlay
   + Adobe Primetime
   + [HDCP](https://github.com/vvideo/hdcp)
-- Native streaming support
+- 🏊 Native streaming support
   + DASH
   + HLS
   + MSS
-- HTMLVideoElement features
+- ⏯ HTMLVideoElement features
   + Media Source Extensions
   + Encrypted Media Extensions
   + Managed Media Source
   + Picture-in-picture
   + Cast to AirPlay
-- Video codecs
+- 📹 Video codecs
   + H.264
   + H.265 (HEVC)
   + H.266 (VVC)
@@ -46,7 +45,7 @@ Detect audio and video features in browser.
   + VP8
   + VP9
   + AV1
-- Audio codecs
+- 🔊 Audio codecs
   + AAC
   + Opus
   + Vorbis
@@ -55,7 +54,7 @@ Detect audio and video features in browser.
   + AC-3 (Dolby Digital)
   + EC-3 (Dolby Digital+)
   + Dolby Atmos
-- Image formats
+- 🖼️ Image formats
   + GIF
   + PNG
   + APNG
@@ -65,7 +64,7 @@ Detect audio and video features in browser.
   + AVIF
   + WEBP
   + SVG
-- Platform
+- 🕍 Platform
   + Standalone
 
 ## Install
