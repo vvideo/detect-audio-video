@@ -95,6 +95,9 @@ const SCREEN_5K = [[5120, 1440], [5120, 2160], [5120, 2700], [5120, 2880], [5120
 // 3656×2664, 3840×2160, 3996×2160, 4096×1716, 4096×2160, 4096×3072
 const SCREEN_4K = [[3656, 2664], [3840, 2160], [3996, 2160], [4096, 1716], [4096, 2160], [4096, 3072]];
 
+// 3000x2000
+const SCREEN_3K = [[3000, 2000]];
+
 // 2560×1440
 const SCREEN_2d5K = [[2560, 1440]];
 
@@ -107,7 +110,7 @@ const SCREEN_FULLHD = [[1920, 1080]];
 // 1280×720
 const SCREEN_HD = [[1280, 720]];
 
-// SD: 854x480, 640x360, 426x240
+// SD: 854×480, 640×360, 426×240
 
 export function is32KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
     return isMoreOrEqual(SCREEN_32K, width, height);
@@ -135,6 +138,10 @@ export function is5KScreenSupported(width = getScreenWidth(), height = getScreen
 
 export function is4KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
     return isMoreOrEqual(SCREEN_4K, width, height);
+}
+
+export function is3KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
+    return isMoreOrEqual(SCREEN_3K, width, height);
 }
 
 export function is2dot5KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
@@ -203,6 +210,10 @@ export function getResolutionBadge(width = getScreenWidth(), height = getScreenH
         {
             sizes: SCREEN_2d5K,
             title: '2.5K'
+        },
+        {
+            sizes: SCREEN_3K,
+            title: '3K'
         },
         {
             sizes: SCREEN_4K,
