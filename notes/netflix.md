@@ -1,0 +1,2 @@
+- [Windows](https://help.netflix.com/en/node/23931), [Nvidia](https://nvidia.custhelp.com/app/answers/detail/a_id/4583/~/4k-uhd-netflix-content-on-nvidia-gpus)
+- [Mac](https://help.netflix.com/en/node/55764)
