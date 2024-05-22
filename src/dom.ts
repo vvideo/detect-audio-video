@@ -5,7 +5,10 @@ declare global {
 }
 
 export function isMseSupported() {
-    return Boolean(window.MediaSource && window.MediaSource.isTypeSupported);
+    return Boolean(
+        window.MediaSource &&
+        typeof window.MediaSource.isTypeSupported === 'function'
+    );
 }
 
 export function isEmeSupported() {
@@ -17,6 +20,6 @@ export function isEmeSupported() {
 export function isMmsSupported() {
     return Boolean(
         window.ManagedMediaSource &&
-        window.ManagedMediaSource.isTypeSupported
+        typeof window.ManagedMediaSource.isTypeSupported === 'function'
     );
 }
