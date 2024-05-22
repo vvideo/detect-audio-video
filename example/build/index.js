@@ -251,7 +251,8 @@
     }
 
     function isMseSupported() {
-        return Boolean(window.MediaSource && window.MediaSource.isTypeSupported);
+        return Boolean(window.MediaSource &&
+            typeof window.MediaSource.isTypeSupported === 'function');
     }
     function isEmeSupported() {
         var _a, _b;
@@ -261,7 +262,7 @@
     }
     function isMmsSupported() {
         return Boolean(window.ManagedMediaSource &&
-            window.ManagedMediaSource.isTypeSupported);
+            typeof window.ManagedMediaSource.isTypeSupported === 'function');
     }
 
     const pre = document.createElement('pre');
