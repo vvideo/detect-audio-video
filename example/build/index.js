@@ -173,13 +173,13 @@
 
     function getGpuVendor() {
         const canvas = document.createElement('canvas');
-        try {
-            const gl = canvas.getContext('webgl');
-            if (gl) {
-                return gl.getParameter(gl.VENDOR);
-            }
-        }
-        catch (e) { }
+        // Less detailed GPU data
+        // try {
+        //     const gl = canvas.getContext('webgl');
+        //     if (gl) {
+        //         return gl.getParameter(gl.VENDOR);
+        //     }
+        // } catch(e) {}
         try {
             const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
             if (gl) {
@@ -194,13 +194,13 @@
     }
     function getGpuRenderer() {
         const canvas = document.createElement('canvas');
-        try {
-            const gl = canvas.getContext('webgl');
-            if (gl) {
-                return gl.getParameter(gl.RENDERER);
-            }
-        }
-        catch (e) { }
+        // Less detailed GPU data
+        // try {
+        //     const gl = canvas.getContext('webgl');
+        //     if (gl) {
+        //         return gl.getParameter(gl.RENDERER);
+        //     }
+        // } catch(e) {}
         try {
             const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
             if (gl) {
