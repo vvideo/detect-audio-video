@@ -1,3 +1,6 @@
+# 1.1.2
+Fix for more detailed GPU data.
+
 # 1.1.1
 MSE support fix.
 
