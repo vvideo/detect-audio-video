@@ -1,3 +1,6 @@
+# 1.2.1
+- Fix title for SD resolution.
+
 # 1.2.0
 - Added `hasHardwareAcceleration` helper.
 - Added `isChromium` helper.
