@@ -24,5 +24,6 @@ describe('Screen', () => {
     it('#getResolutionBadge', () => {
         expect(getResolutionBadge(3840, 2160)).toEqual('4K');
         expect(getResolutionBadge(4321, 2160)).toEqual('>4K');
+        expect(getResolutionBadge(1138, 1012)).toEqual('>SD');
     });
 });

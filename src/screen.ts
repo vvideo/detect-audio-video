@@ -187,13 +187,13 @@ export function checkSize(sizes: number[][], width: number, height: number) {
     }
 
     return 1;
-} 
+}
 
 export function getResolutionBadge(width = getScreenWidth(), height = getScreenHeight()) {
-    const items = [
+    const items: Array<{ sizes: number[][], title: string }> = [
         {
             sizes: [[0, 0]],
-            badge: 'SD',
+            title: 'SD',
         },
         {
             sizes: SCREEN_HD,
