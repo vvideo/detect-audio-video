@@ -6,22 +6,30 @@ export function resetDefaultMediaElements() {
     defaultAudioElement = undefined;
 }
 
+export function getDefaultAudioElement() {
+    if (!defaultAudioElement) {
+        defaultAudioElement = document.createElement('audio');
+    }
+
+    return defaultAudioElement;
+}
+
+export function getDefaultVideoElement() {
+    if (!defaultVideoElement) {
+        defaultVideoElement = document.createElement('video');
+    }
+
+    return defaultVideoElement;
+}
+
 export function canPlayType(type: string) {
     let mediaElement: HTMLVideoElement | HTMLAudioElement;
 
     const mediaElementType = type.split('/')[0];
     if (mediaElementType === 'audio') {
-        if (!defaultAudioElement) {
-            defaultAudioElement = document.createElement('video');
-        }
-
-        mediaElement = defaultAudioElement;
+        mediaElement = getDefaultAudioElement();
     } else {
-        if (!defaultVideoElement) {
-            defaultVideoElement = document.createElement('video');
-        }
-
-        mediaElement = defaultVideoElement;
+        mediaElement = getDefaultVideoElement();
     }
 
     return mediaElement.canPlayType ?
