@@ -220,20 +220,26 @@
 
     let defaultVideoElement;
     let defaultAudioElement;
+    function getDefaultAudioElement() {
+        if (!defaultAudioElement) {
+            defaultAudioElement = document.createElement('audio');
+        }
+        return defaultAudioElement;
+    }
+    function getDefaultVideoElement() {
+        if (!defaultVideoElement) {
+            defaultVideoElement = document.createElement('video');
+        }
+        return defaultVideoElement;
+    }
     function canPlayType(type) {
         let mediaElement;
         const mediaElementType = type.split('/')[0];
         if (mediaElementType === 'audio') {
-            if (!defaultAudioElement) {
-                defaultAudioElement = document.createElement('video');
-            }
-            mediaElement = defaultAudioElement;
+            mediaElement = getDefaultAudioElement();
         }
         else {
-            if (!defaultVideoElement) {
-                defaultVideoElement = document.createElement('video');
-            }
-            mediaElement = defaultVideoElement;
+            mediaElement = getDefaultVideoElement();
         }
         return mediaElement.canPlayType ?
             mediaElement.canPlayType(type) :
