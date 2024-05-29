@@ -1,3 +1,8 @@
+# 1.2.0
+- Added `hasHardwareAcceleration` helper.
+- Added `isChromium` helper.
+- Renamed `getIsMobile` → `isMobile` helper.
+
 # 1.1.2
 Fix for more detailed GPU data.
 
