@@ -1,5 +1,5 @@
 export function isTypeSupported(value: string): boolean {
-    if (!window.MediaSource) {
+    if (typeof window === 'undefined' || !window.MediaSource) {
         return false;
     }
 

@@ -2,6 +2,10 @@ import { H264_BASELINE_CONTENT_TYPE } from "./contentTypes/video";
 import { isChromium } from "./device/isChromium";
 
 export function getGpuVendor() {
+    if (typeof window === 'undefined') {
+        return '';
+    }
+
     const canvas = document.createElement('canvas');
 
     // Less detailed GPU data
@@ -27,6 +31,10 @@ export function getGpuVendor() {
 }
 
 export function getGpuRenderer(): string {
+    if (typeof window === 'undefined') {
+        return '';
+    }
+
     const canvas = document.createElement('canvas');
 
     // Less detailed GPU data

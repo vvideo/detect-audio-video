@@ -6,19 +6,25 @@ declare global {
 
 export function isMseSupported() {
     return Boolean(
+        typeof window !== 'undefined' &&
         window.MediaSource &&
         typeof window.MediaSource.isTypeSupported === 'function'
     );
 }
 
 export function isEmeSupported() {
-    return Boolean(window.MediaKeys) &&
-        Boolean(window.navigator?.requestMediaKeySystemAccess) &&
-        Boolean(window.MediaKeySystemAccess?.prototype.getConfiguration);
+    return Boolean(
+            typeof window !== 'undefined' &&
+            window.MediaKeys &&
+            // @ts-ignore
+            window.navigator?.requestMediaKeySystemAccess &&
+            window.MediaKeySystemAccess?.prototype.getConfiguration
+        );
 }
 
 export function isMmsSupported() {
     return Boolean(
+        typeof window !== 'undefined' &&
         window.ManagedMediaSource &&
         typeof window.ManagedMediaSource.isTypeSupported === 'function'
     );

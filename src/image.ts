@@ -33,6 +33,7 @@ export function isAPngSupported() {
 
 export function isSvgSupported() {
     return Boolean(
+        typeof window !== 'undefined' &&
         document.createElementNS &&
         document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect
     );
@@ -55,6 +56,10 @@ export function isAvifSupported() {
 }
 
 export function isImageSupported(type: string): Promise<boolean> {
+    if (typeof window === 'undefined') {
+        return Promise.resolve(false);
+    }
+
     return new Promise((resolve) => {
         const picture = document.createElement('picture');
         const source = document.createElement('source');

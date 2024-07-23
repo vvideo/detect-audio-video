@@ -44,6 +44,10 @@ export function isDolbyDigitalPlusSupported() {
 
 // audio/mp4; codecs="ec-3"; spatialRendering=true - no support
 export function isDolbyAtmosSupported() {
+    if (typeof window === 'undefined') {
+        return false;
+    }
+
     // @ts-ignore
     const cast = window.cast;
     // Chromecast

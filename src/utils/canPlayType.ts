@@ -23,6 +23,10 @@ export function getDefaultVideoElement() {
 }
 
 export function canPlayType(type: string) {
+    if (typeof window === 'undefined') {
+        return '';
+    }
+
     let mediaElement: HTMLVideoElement | HTMLAudioElement;
 
     const mediaElementType = type.split('/')[0];

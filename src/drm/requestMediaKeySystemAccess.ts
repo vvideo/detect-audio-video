@@ -1,5 +1,5 @@
 export function requestMediaKeySystemAccess(keySystem: string, supportedConfigurations: MediaKeySystemConfiguration[]) {
-    if (!navigator.requestMediaKeySystemAccess) {
+    if (typeof navigator === 'undefined' || !navigator.requestMediaKeySystemAccess) {
         return Promise.resolve(false);
     }
 
