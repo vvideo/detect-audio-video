@@ -1,3 +1,6 @@
+# 1.3.0
+Fixes for SSR.
+
 # 1.2.1
 - Fix title for SD resolution.
 
