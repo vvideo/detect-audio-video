@@ -13,7 +13,7 @@
     const PRIMETIME_KEY_SYSTEM = 'com.adobe.primetime';
 
     function requestMediaKeySystemAccess(keySystem, supportedConfigurations) {
-        if (!navigator.requestMediaKeySystemAccess) {
+        if (typeof navigator === 'undefined' || !navigator.requestMediaKeySystemAccess) {
             return Promise.resolve(false);
         }
         return navigator.requestMediaKeySystemAccess(keySystem, supportedConfigurations).then(() => true).catch(() => false);
@@ -172,6 +172,9 @@
     }
 
     function getGpuVendor() {
+        if (typeof window === 'undefined') {
+            return '';
+        }
         const canvas = document.createElement('canvas');
         // Less detailed GPU data
         // try {
@@ -193,6 +196,9 @@
         return '';
     }
     function getGpuRenderer() {
+        if (typeof window === 'undefined') {
+            return '';
+        }
         const canvas = document.createElement('canvas');
         // Less detailed GPU data
         // try {
@@ -233,6 +239,9 @@
         return defaultVideoElement;
     }
     function canPlayType(type) {
+        if (typeof window === 'undefined') {
+            return '';
+        }
         let mediaElement;
         const mediaElementType = type.split('/')[0];
         if (mediaElementType === 'audio') {
@@ -257,17 +266,22 @@
     }
 
     function isMseSupported() {
-        return Boolean(window.MediaSource &&
+        return Boolean(typeof window !== 'undefined' &&
+            window.MediaSource &&
             typeof window.MediaSource.isTypeSupported === 'function');
     }
     function isEmeSupported() {
         var _a, _b;
-        return Boolean(window.MediaKeys) &&
-            Boolean((_a = window.navigator) === null || _a === void 0 ? void 0 : _a.requestMediaKeySystemAccess) &&
-            Boolean((_b = window.MediaKeySystemAccess) === null || _b === void 0 ? void 0 : _b.prototype.getConfiguration);
+        return Boolean(typeof window !== 'undefined' &&
+            window.MediaKeys &&
+            (
+            // @ts-ignore
+            (_a = window.navigator) === null || _a === void 0 ? void 0 : _a.requestMediaKeySystemAccess) &&
+            ((_b = window.MediaKeySystemAccess) === null || _b === void 0 ? void 0 : _b.prototype.getConfiguration));
     }
     function isMmsSupported() {
-        return Boolean(window.ManagedMediaSource &&
+        return Boolean(typeof window !== 'undefined' &&
+            window.ManagedMediaSource &&
             typeof window.ManagedMediaSource.isTypeSupported === 'function');
     }
 
