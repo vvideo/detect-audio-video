@@ -4,13 +4,16 @@
 })((function () { 'use strict';
 
     const H264_BASELINE_CONTENT_TYPE = 'video/mp4; codecs="avc1.42E01E"';
+    const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
 
-    const FAIRPLAY_KEY_SYSTEM = 'com.apple.fps';
-    const WIDEWINE_KEY_SYSTEM = 'com.widevine.alpha';
-    // https://github.com/shaka-project/shaka-player/blob/main/docs/tutorials/drm-config.md
-    const PLAYREADY_KEY_SYSTEM = 'com.microsoft.playready';
-    const PLAYREADY_RECOMMENDATION_KEY_SYSTEM = 'com.microsoft.playready.recommendation';
-    const PRIMETIME_KEY_SYSTEM = 'com.adobe.primetime';
+    const defaultVideoCapabilites = [
+        {
+            contentType: H264_BASELINE_CONTENT_TYPE,
+        },
+        {
+            contentType: VP8_CONTENT_TYPE,
+        },
+    ];
 
     function requestMediaKeySystemAccess(keySystem, supportedConfigurations) {
         if (typeof navigator === 'undefined' || !navigator.requestMediaKeySystemAccess) {
@@ -19,121 +22,62 @@
         return navigator.requestMediaKeySystemAccess(keySystem, supportedConfigurations).then(() => true).catch(() => false);
     }
 
-    function isFairPlaySupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(FAIRPLAY_KEY_SYSTEM, [
+    function isDrmSupported(keySystem, params = {}) {
+        const videoCapabilities = params.videoCapabilities || defaultVideoCapabilites;
+        return requestMediaKeySystemAccess(keySystem, [
             {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                    },
-                ],
+                distinctiveIdentifier: params.distinctiveIdentifier,
+                initDataTypes: params.initDataTypes,
+                persistentState: params.persistentState,
+                sessionTypes: params.sessionTypes,
+                videoCapabilities: videoCapabilities.map(item => {
+                    const data = Object.assign({}, item);
+                    if (params.encryptionScheme) {
+                        data.encryptionScheme = params.encryptionScheme;
+                    }
+                    if (params.robustness) {
+                        data.robustness = params.robustness;
+                    }
+                    return data;
+                }),
             },
         ]);
     }
 
-    function isWidevineSupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                    },
-                ],
-            },
-        ]);
-    }
-    function isWidevineL1Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                        robustness: 'HW_SECURE_DECODE',
-                    },
-                ],
-            },
-        ]);
-    }
-    function isWidevineL3Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                        robustness: 'SW_SECURE_DECODE',
-                    },
-                ],
-            },
-        ]);
+    const FAIRPLAY_KEY_SYSTEM = 'com.apple.fps';
+    const WIDEWINE_KEY_SYSTEM = 'com.widevine.alpha';
+    const PLAYREADY_RECOMMENDATION_KEY_SYSTEM = 'com.microsoft.playready.recommendation';
+    const PRIMETIME_KEY_SYSTEM = 'com.adobe.primetime';
+
+    function isFairPlaySupported(params) {
+        return isDrmSupported(FAIRPLAY_KEY_SYSTEM, params);
     }
 
-    function isPlayReadySupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                    },
-                ],
-            },
-        ]);
+    function isWidevineSupported(params) {
+        return isDrmSupported(WIDEWINE_KEY_SYSTEM, params);
     }
-    function isPlayReadySL150Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                        robustness: '150',
-                    },
-                ],
-            },
-        ]);
+    function isWidevineL1Supported(params = {}) {
+        return isDrmSupported(WIDEWINE_KEY_SYSTEM, Object.assign(Object.assign({}, params), { robustness: 'HW_SECURE_DECODE' }));
     }
-    function isPlayReadySL2000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                        robustness: '2000',
-                    },
-                ],
-            },
-        ]);
-    }
-    function isPlayReadySL3000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']) {
-        return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
-            {
-                initDataTypes,
-                videoCapabilities: [
-                    {
-                        contentType,
-                        robustness: '3000',
-                    },
-                ],
-            },
-        ]);
+    function isWidevineL3Supported(params = {}) {
+        return isDrmSupported(WIDEWINE_KEY_SYSTEM, Object.assign(Object.assign({}, params), { robustness: 'SW_SECURE_DECODE' }));
     }
 
-    function isPrimetimeSupported() {
-        return requestMediaKeySystemAccess(PRIMETIME_KEY_SYSTEM, [
-            {
-                initDataTypes: ['cenc'],
-                videoCapabilities: [
-                    {
-                        contentType: H264_BASELINE_CONTENT_TYPE,
-                    },
-                ],
-            },
-        ]);
+    function isPlayReadySupported(params) {
+        return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, params);
+    }
+    function isPlayReadySL150Supported(params = {}) {
+        return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, Object.assign(Object.assign({}, params), { robustness: '150' }));
+    }
+    function isPlayReadySL2000Supported(params = {}) {
+        return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, Object.assign(Object.assign({}, params), { robustness: '2000' }));
+    }
+    function isPlayReadySL3000Supported(params = {}) {
+        return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, Object.assign(Object.assign({}, params), { robustness: '3000' }));
+    }
+
+    function isPrimetimeSupported(params) {
+        return isDrmSupported(PRIMETIME_KEY_SYSTEM, params);
     }
 
     function getDevicePixelRatio() {
