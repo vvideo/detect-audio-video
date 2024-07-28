@@ -1,3 +1,9 @@
+# 2.0.0
+Changed params for DRM functions.
+- `isPlayReadySupported`
+- `isWidevineSupported`
+- ...
+
 # 1.3.0
 Fixes for SSR.
 
