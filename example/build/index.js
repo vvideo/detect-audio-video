@@ -230,6 +230,34 @@
             typeof window.ManagedMediaSource.isTypeSupported === 'function');
     }
 
+    function getFirefoxVersion() {
+        const match = navigator.userAgent.match(/Firefox\/([0-9]+)\./);
+        return match ? (parseInt(match[1], 10) || -1) : -1;
+    }
+
+    function isFirefox() {
+        return /firefox/.test(window.navigator.userAgent.toLowerCase());
+    }
+
+    function isPipSupported() {
+        if (typeof window === 'undefined') {
+            return false;
+        }
+        if (isFirefox() && getFirefoxVersion() >= 69) {
+            return true;
+        }
+        const video = document.createElement('video');
+        return 'pictureInPictureEnabled' in document || 'webkitPresentationMode' in video;
+    }
+    function isDocumentPipSupported() {
+        if (typeof window === 'undefined') {
+            return false;
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/API/DocumentPictureInPicture
+        // @ts-ignore
+        return Boolean(window.documentPictureInPicture);
+    }
+
     const pre = document.createElement('pre');
     document.body.appendChild(pre);
     Promise.all([
@@ -297,6 +325,12 @@
             },
             {
                 title: 'EME', result: isEmeSupported(),
+            },
+            {
+                title: 'Pip', result: isPipSupported(),
+            },
+            {
+                title: 'Document Pip', result: isDocumentPipSupported(),
             },
         ];
         pre.innerHTML = result.map((item) => {

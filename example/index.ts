@@ -5,6 +5,7 @@ import { isPrimetimeSupported } from '../src/drm/primetime';
 import { getGpuRenderer, getGpuVendor } from '../src/gpu';
 import { isNativeHlsSupported, isNativeMpdSupported, isNativeMssSupported } from '../src/stream';
 import { isEmeSupported, isMseSupported, isMmsSupported } from '../src/dom';
+import { isPipSupported, isDocumentPipSupported } from '../src/videoelement';
 
 const pre = document.createElement('pre');
 document.body.appendChild(pre);
@@ -82,6 +83,12 @@ Promise.all([
         },
         {
             title: 'EME', result: isEmeSupported(),
+        },
+        {
+            title: 'Pip', result: isPipSupported(),
+        },
+        {
+            title: 'Document Pip', result: isDocumentPipSupported(),
         },
     ];
 
