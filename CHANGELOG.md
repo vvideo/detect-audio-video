@@ -1,3 +1,6 @@
+# 2.0.1
+Fixed initDataTypes for DRM functions.
+
 # 2.0.0
 Changed params for DRM functions.
 - `isPlayReadySupported`
