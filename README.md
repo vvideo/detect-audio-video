@@ -86,7 +86,7 @@ console.log('AAC supported', isAacSupported());
 ```
 
 ## Links
-- [Can I Watch Video?](https://vvideo.github.io/caniwatchvideo)
+- [Check device online](https://checkdevice.online/en/video/)
 - [Calculate aspect ratio](https://github.com/vvideo/calc-aspect-ratio)
 - [HDCP](https://github.com/vvideo/hdcp)
 
