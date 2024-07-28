@@ -1,16 +1,6 @@
-import { H264_BASELINE_CONTENT_TYPE } from '../contentTypes/video';
+import { isDrmSupported, IsDrmSupportedParams } from './isDrmSupported';
 import { PRIMETIME_KEY_SYSTEM } from './keySystems';
-import { requestMediaKeySystemAccess } from './requestMediaKeySystemAccess';
 
-export function isPrimetimeSupported(): Promise<boolean> {
-    return requestMediaKeySystemAccess(PRIMETIME_KEY_SYSTEM, [
-        {
-            initDataTypes: ['cenc'],
-            videoCapabilities: [
-                {
-                    contentType: H264_BASELINE_CONTENT_TYPE,
-                },
-            ],
-        },
-    ]);
+export function isPrimetimeSupported(params?: IsDrmSupportedParams): Promise<boolean> {
+    return isDrmSupported(PRIMETIME_KEY_SYSTEM, params);
 }

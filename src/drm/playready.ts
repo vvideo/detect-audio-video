@@ -1,58 +1,27 @@
-import { H264_BASELINE_CONTENT_TYPE } from '../contentTypes/video';
-import { PLAYREADY_KEY_SYSTEM, PLAYREADY_RECOMMENDATION_KEY_SYSTEM } from './keySystems';
-import { requestMediaKeySystemAccess } from './requestMediaKeySystemAccess';
+import { isDrmSupported, IsDrmSupportedParams } from './isDrmSupported';
+import { PLAYREADY_RECOMMENDATION_KEY_SYSTEM } from './keySystems';
 
-export function isPlayReadySupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                },
-            ],
-        },
-    ]);
+export function isPlayReadySupported(params?: IsDrmSupportedParams): Promise<boolean> {
+    return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, params);
 }
 
-export function isPlayReadySL150Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(PLAYREADY_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                    robustness: '150',
-                },
-            ],
-        },
-    ]);
+export function isPlayReadySL150Supported(params: IsDrmSupportedParams = {}): Promise<boolean> {
+    return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, {
+        ...params,
+        robustness: '150'
+    });
 }
 
-export function isPlayReadySL2000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                    robustness: '2000',
-                },
-            ],
-        },
-    ]);
+export function isPlayReadySL2000Supported(params: IsDrmSupportedParams = {}): Promise<boolean> {
+    return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, {
+        ...params,
+        robustness: '2000'
+    });
 }
 
-export function isPlayReadySL3000Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                    robustness: '3000',
-                },
-            ],
-        },
-    ]);
+export function isPlayReadySL3000Supported(params: IsDrmSupportedParams = {}): Promise<boolean> {
+    return isDrmSupported(PLAYREADY_RECOMMENDATION_KEY_SYSTEM, {
+        ...params,
+        robustness: '3000'
+    });
 }

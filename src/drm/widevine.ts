@@ -1,44 +1,20 @@
-import { H264_BASELINE_CONTENT_TYPE } from '../contentTypes/video';
+import { isDrmSupported, IsDrmSupportedParams } from './isDrmSupported';
 import { WIDEWINE_KEY_SYSTEM } from './keySystems';
-import { requestMediaKeySystemAccess } from './requestMediaKeySystemAccess';
 
-export function isWidevineSupported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                },
-            ],
-        },
-    ]);
+export function isWidevineSupported(params?: IsDrmSupportedParams): Promise<boolean> {
+    return isDrmSupported(WIDEWINE_KEY_SYSTEM, params);
 }
 
-export function isWidevineL1Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                    robustness: 'HW_SECURE_DECODE',
-                },
-            ],
-        },
-    ]);
+export function isWidevineL1Supported(params: IsDrmSupportedParams = {}): Promise<boolean> {
+    return isDrmSupported(WIDEWINE_KEY_SYSTEM, {
+        ...params,
+        robustness: 'HW_SECURE_DECODE',
+    });
 }
 
-export function isWidevineL3Supported(contentType = H264_BASELINE_CONTENT_TYPE, initDataTypes = ['cenc']): Promise<boolean> {
-    return requestMediaKeySystemAccess(WIDEWINE_KEY_SYSTEM, [
-        {
-            initDataTypes,
-            videoCapabilities: [
-                {
-                    contentType,
-                    robustness: 'SW_SECURE_DECODE',
-                },
-            ],
-        },
-    ]);
+export function isWidevineL3Supported(params: IsDrmSupportedParams = {}): Promise<boolean> {
+    return isDrmSupported(WIDEWINE_KEY_SYSTEM, {
+        ...params,
+        robustness: 'SW_SECURE_DECODE',
+    });
 }
