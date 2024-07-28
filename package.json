@@ -5,6 +5,11 @@
   "module": "dist/index.js",
   "type": "module",
   "typings": "dist/index.d.ts",
+  "homepage": "https://github.com/vvideo/detect-audio-video",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vvideo/detect-audio-video.git"
+  },
   "scripts": {
     "clean": "del dist/*; del example/build/*",
     "test": "npm run typecheck && jest ",
@@ -15,7 +20,7 @@
   "author": {
     "name": "Denis Seleznev",
     "email": "hcodes@yandex.ru",
-    "url": "https://github.com/vvideo/detect-audio-video"
+    "url": "https://github.com/vvideo/"
   },
   "license": "MIT",
   "devDependencies": {
