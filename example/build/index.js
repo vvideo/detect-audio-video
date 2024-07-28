@@ -6,6 +6,7 @@
     const H264_BASELINE_CONTENT_TYPE = 'video/mp4; codecs="avc1.42E01E"';
     const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
 
+    const initDataTypes = ['cenc', 'sinf', 'skd', 'keyids'];
     const defaultVideoCapabilites = [
         {
             contentType: H264_BASELINE_CONTENT_TYPE,
@@ -27,7 +28,7 @@
         return requestMediaKeySystemAccess(keySystem, [
             {
                 distinctiveIdentifier: params.distinctiveIdentifier,
-                initDataTypes: params.initDataTypes,
+                initDataTypes: params.initDataTypes || initDataTypes,
                 persistentState: params.persistentState,
                 sessionTypes: params.sessionTypes,
                 videoCapabilities: videoCapabilities.map(item => {
