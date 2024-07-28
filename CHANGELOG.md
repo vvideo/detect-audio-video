@@ -1,3 +1,6 @@
+# 2.1.0
+Added `isDocumentPipSupported()` helper.
+
 # 2.0.1
 Fixed initDataTypes for DRM functions.
 
