@@ -1,4 +1,4 @@
-import { defaultVideoCapabilites } from './default';
+import { defaultVideoCapabilites, initDataTypes } from './default';
 import { requestMediaKeySystemAccess } from './requestMediaKeySystemAccess';
 
 export interface IsDrmSupportedParams {
@@ -17,7 +17,7 @@ export function isDrmSupported(keySystem: string, params: IsDrmSupportedParams =
     return requestMediaKeySystemAccess(keySystem, [
         {
             distinctiveIdentifier: params.distinctiveIdentifier,
-            initDataTypes: params.initDataTypes,
+            initDataTypes: params.initDataTypes || initDataTypes,
             persistentState: params.persistentState,
             sessionTypes: params.sessionTypes,
             videoCapabilities: videoCapabilities.map(item => {

@@ -2,11 +2,12 @@ import { AAC_CONTENT_TYPE, OPUS_CONTENT_TYPE } from '../contentTypes/audio';
 import { H264_BASELINE_CONTENT_TYPE, VP8_CONTENT_TYPE } from '../contentTypes/video';
 
 export const encryptionSchemes = [
-    null,
     'cenc',
     'cbcs',
     'cbcs-1-9',
 ];
+
+export const initDataTypes =  ['cenc', 'sinf', 'skd', 'keyids'];
 
 export const defaultVideoCapabilites: MediaKeySystemMediaCapability[] = [
     {
@@ -25,5 +26,3 @@ export const defaultAudioCapabilites: MediaKeySystemMediaCapability[] = [
         contentType: OPUS_CONTENT_TYPE,
     },
 ];
-
-
