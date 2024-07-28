@@ -6,7 +6,7 @@
 
 Detect audio and video features in browser.
 
-## [Demo](https://vvideo.github.io/caniwatchvideo)
+## [Demo](https://checkdevice.online/en/video/)
 
 ## Features
 
