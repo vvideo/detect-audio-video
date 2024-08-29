@@ -116,8 +116,10 @@
         return win.matchMedia && win.matchMedia(`(dynamic-range: ${type})`).matches;
     }
 
+    const isSsr = typeof window === 'undefined';
+
     function getGpuVendor() {
-        if (typeof window === 'undefined') {
+        if (isSsr) {
             return '';
         }
         const canvas = document.createElement('canvas');
@@ -141,7 +143,7 @@
         return '';
     }
     function getGpuRenderer() {
-        if (typeof window === 'undefined') {
+        if (isSsr) {
             return '';
         }
         const canvas = document.createElement('canvas');
@@ -184,7 +186,7 @@
         return defaultVideoElement;
     }
     function canPlayType(type) {
-        if (typeof window === 'undefined') {
+        if (isSsr) {
             return '';
         }
         let mediaElement;
@@ -240,7 +242,7 @@
     }
 
     function isPipSupported() {
-        if (typeof window === 'undefined') {
+        if (isSsr) {
             return false;
         }
         if (isFirefox() && getFirefoxVersion() >= 69) {
@@ -250,7 +252,7 @@
         return 'pictureInPictureEnabled' in document || 'webkitPresentationMode' in video;
     }
     function isDocumentPipSupported() {
-        if (typeof window === 'undefined') {
+        if (isSsr) {
             return false;
         }
         // https://developer.mozilla.org/en-US/docs/Web/API/DocumentPictureInPicture
