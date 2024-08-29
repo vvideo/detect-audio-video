@@ -1,8 +1,9 @@
-import { H264_BASELINE_CONTENT_TYPE } from "./contentTypes/video";
-import { isChromium } from "./device/isChromium";
+import { H264_BASELINE_CONTENT_TYPE } from './contentTypes/video';
+import { isChromium } from './device/isChromium';
+import { isSsr } from './utils/isSsr';
 
 export function getGpuVendor() {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return '';
     }
 
@@ -31,7 +32,7 @@ export function getGpuVendor() {
 }
 
 export function getGpuRenderer(): string {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return '';
     }
 
@@ -74,4 +75,26 @@ export function hasHardwareAcceleration(): Promise<boolean | undefined> {
             framerate: 30,
         }
     }).then(result => result.powerEfficient).catch(() => undefined);
+}
+
+export function isAppleSilicon() {
+    if (isSsr) {
+        return false;
+    }
+
+    try {
+        const canvas = document.createElement('canvas');
+        const webgl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        // @ts-ignore
+        const debug = webgl.getExtension('WEBGL_debug_renderer_info');
+        // @ts-ignore
+        const renderer = webgl.getParameter(debug.UNMASKED_RENDERER_WEBGL);
+        if (renderer.match(/apple m\d/i)) {
+            return true;
+        }
+    } catch {
+        return false;
+    }
+    
+    return false;
 }

@@ -15,6 +15,7 @@ import {
     ALAC_CONTENT_TYPE,
 } from './contentTypes/audio';
 import { isContentTypeSupported } from './utils/isContentTypeSupported';
+import { isSsr } from './utils/isSsr';
 
 declare global {
     interface Window {
@@ -44,7 +45,7 @@ export function isDolbyDigitalPlusSupported() {
 
 // audio/mp4; codecs="ec-3"; spatialRendering=true - no support
 export function isDolbyAtmosSupported() {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return false;
     }
 

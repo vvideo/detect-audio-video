@@ -1,8 +1,9 @@
 import { getFirefoxVersion } from './device/getFirefoxVersion';
 import { isFirefox } from './device/isFirefox';
+import { isSsr } from './utils/isSsr';
 
 export function isPipSupported(): boolean {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return false;
     }
 
@@ -16,7 +17,7 @@ export function isPipSupported(): boolean {
 }
 
 export function isDocumentPipSupported() {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return false;
     }
 

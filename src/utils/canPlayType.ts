@@ -1,3 +1,5 @@
+import { isSsr } from "./isSsr";
+
 export let defaultVideoElement: HTMLVideoElement | undefined;
 export let defaultAudioElement: HTMLAudioElement | undefined;
 
@@ -23,7 +25,7 @@ export function getDefaultVideoElement() {
 }
 
 export function canPlayType(type: string) {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return '';
     }
 

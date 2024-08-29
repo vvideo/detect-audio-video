@@ -1,5 +1,7 @@
+import { isSsr } from './isSsr';
+
 export function isTypeSupported(value: string): boolean {
-    if (typeof window === 'undefined' || !window.MediaSource) {
+    if (isSsr || !window.MediaSource) {
         return false;
     }
 

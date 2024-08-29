@@ -10,6 +10,7 @@ import {
     HEIC_CONTENT_TYPE,
     AVIF_CONTENT_TYPE,
 } from './contentTypes/image';
+import { isSsr } from './utils/isSsr';
 
 export function isGifSupported() {
     return isImageSupported(GIF_CONTENT_TYPE);
@@ -56,7 +57,7 @@ export function isAvifSupported() {
 }
 
 export function isImageSupported(type: string): Promise<boolean> {
-    if (typeof window === 'undefined') {
+    if (isSsr) {
         return Promise.resolve(false);
     }
 
