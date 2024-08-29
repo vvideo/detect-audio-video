@@ -1,3 +1,6 @@
+# 2.2.0
+Added `isAppleSilicon()` helper.
+
 # 2.1.0
 Added `isDocumentPipSupported()` helper.
 
