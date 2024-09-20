@@ -20,7 +20,7 @@ export function getScreenDepth() {
     return screen.colorDepth;
 }
 
-export function isHighDynamicRangeSupported(win = window): boolean | undefined {
+export function isHighDynamicRangeSupported(win: Window = window): boolean | undefined {
     if (win.Hisense_GetSupportForHDR) {
         return win.Hisense_GetSupportForHDR() !== 'not support';
     }
@@ -46,7 +46,7 @@ export function isHighDynamicRangeSupported(win = window): boolean | undefined {
     return undefined;
 }
 
-function checkDynamicRange(type: 'high' | 'standard', win = window) {
+function checkDynamicRange(type: 'high' | 'standard', win: Window = window) {
     return win.matchMedia && win.matchMedia(`(dynamic-range: ${type})`).matches;
 }
 
