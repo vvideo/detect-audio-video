@@ -50,7 +50,7 @@ function checkDynamicRange(type: 'high' | 'standard', win: Window = window) {
     return win.matchMedia && win.matchMedia(`(dynamic-range: ${type})`).matches;
 }
 
-export function isHighVideoDynamicRangeSupported(win = window): boolean | undefined {
+export function isHighVideoDynamicRangeSupported(win: Window = window): boolean | undefined {
     try {
         const isHighSupported = checkVideoDynamicRange('high', win);
         const isStandardSupported = checkVideoDynamicRange('standard', win);
@@ -66,7 +66,7 @@ export function isHighVideoDynamicRangeSupported(win = window): boolean | undefi
 }
 
 
-function checkVideoDynamicRange(type: 'high' | 'standard', win = window) {
+function checkVideoDynamicRange(type: 'high' | 'standard', win: Window = window) {
     return win.matchMedia && win.matchMedia(`(video-dynamic-range: ${type})`).matches;
 }
 
@@ -261,22 +261,22 @@ export function getResolutionBadge(width = getScreenWidth(), height = getScreenH
     return supportedSize;
 }
 
-export function isWideGamutSupported(win = window): boolean {
+export function isWideGamutSupported(win: Window = window): boolean {
     return isSrgbSupported(win) || isRec2020Supported(win);
 }
 
-export function isSrgbSupported(win = window): boolean {
+export function isSrgbSupported(win: Window = window): boolean {
     return checkColorSpace('srgb', win);
 }
 
-export function isP3Supported(win = window): boolean {
+export function isP3Supported(win: Window = window): boolean {
     return checkColorSpace('p3', win);
 }
 
-export function isRec2020Supported(win = window): boolean {
+export function isRec2020Supported(win: Window = window): boolean {
     return checkColorSpace('rec2020', win);
 }
 
-function checkColorSpace(type: 'srgb' | 'p3' | 'rec2020', win = window): boolean {
+function checkColorSpace(type: 'srgb' | 'p3' | 'rec2020', win: Window = window): boolean {
     return win.matchMedia && win.matchMedia(`(color-gamut: ${type})`).matches;
 }
