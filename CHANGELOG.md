@@ -1,3 +1,6 @@
+# 2.2.1
+Fixed TypeScript typings.
+
 # 2.2.0
 Added `isAppleSilicon()` helper.
 
