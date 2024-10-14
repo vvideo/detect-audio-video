@@ -36,10 +36,13 @@ Detect audio and video features in browser.
 
 ### ⏯ HTMLVideoElement features
 - Media Source Extensions
+- Media Source Extensions in Workers
 - Encrypted Media Extensions
 - Managed Media Source
+- Managed Media Source in Workers
 - Picture-in-picture
 - Cast to AirPlay
+- Remote Playback API
 
 ### 📹 Video codecs
 - H.264
