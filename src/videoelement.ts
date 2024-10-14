@@ -2,6 +2,16 @@ import { getFirefoxVersion } from './device/getFirefoxVersion';
 import { isFirefox } from './device/isFirefox';
 import { isSsr } from './utils/isSsr';
 
+export function isRemotePlaybackApiSupported(): boolean {
+    if (isSsr) {
+        return false;
+    }
+
+    const video = document.createElement('video');
+
+    return Boolean(video.remote?.watchAvailability);
+}
+
 export function isPipSupported(): boolean {
     if (isSsr) {
         return false;
