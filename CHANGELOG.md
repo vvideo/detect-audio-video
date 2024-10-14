@@ -1,3 +1,9 @@
+# 2.3.0
+Added helpers:
+- `isRemotePlaybackApiSupported()`
+- `isMseInWorkersSupported()`
+- `isMmsInWorkersSupported()`
+
 # 2.2.2
 Fixed TypeScript typings.
 
