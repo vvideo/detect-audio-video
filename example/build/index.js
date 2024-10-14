@@ -213,13 +213,13 @@
     }
 
     function isMseSupported() {
-        return Boolean(typeof window !== 'undefined' &&
+        return Boolean(!isSsr &&
             window.MediaSource &&
             typeof window.MediaSource.isTypeSupported === 'function');
     }
     function isEmeSupported() {
         var _a, _b;
-        return Boolean(typeof window !== 'undefined' &&
+        return Boolean(!isSsr &&
             window.MediaKeys &&
             (
             // @ts-ignore
@@ -227,7 +227,7 @@
             ((_b = window.MediaKeySystemAccess) === null || _b === void 0 ? void 0 : _b.prototype.getConfiguration));
     }
     function isMmsSupported() {
-        return Boolean(typeof window !== 'undefined' &&
+        return Boolean(!isSsr &&
             window.ManagedMediaSource &&
             typeof window.ManagedMediaSource.isTypeSupported === 'function');
     }
