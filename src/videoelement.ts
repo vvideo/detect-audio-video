@@ -1,5 +1,6 @@
 import { getFirefoxVersion } from './device/getFirefoxVersion';
 import { isFirefox } from './device/isFirefox';
+import { getDefaultVideoElement } from './utils/canPlayType';
 import { isSsr } from './utils/isSsr';
 
 export function isRemotePlaybackApiSupported(): boolean {
@@ -7,7 +8,7 @@ export function isRemotePlaybackApiSupported(): boolean {
         return false;
     }
 
-    const video = document.createElement('video');
+    const video = getDefaultVideoElement();
 
     return Boolean(video.remote?.watchAvailability);
 }
@@ -21,7 +22,7 @@ export function isPipSupported(): boolean {
         return true;
     }
 
-    const video = document.createElement('video');
+    const video = getDefaultVideoElement();
 
     return 'pictureInPictureEnabled' in document || 'webkitPresentationMode' in video;
 }
