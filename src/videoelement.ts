@@ -10,7 +10,11 @@ export function isRemotePlaybackApiSupported(): boolean {
 
     const video = getDefaultVideoElement();
 
-    return Boolean(video.remote?.watchAvailability);
+    return Boolean(
+        // @ts-ignore
+        video.webkitShowPlaybackTargetPicker || // Safari
+        video.remote?.watchAvailability
+    );
 }
 
 export function isPipSupported(): boolean {
