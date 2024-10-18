@@ -1,3 +1,6 @@
+# 2.3.1
+Small fix for `isRemotePlaybackApiSupported()`, added support for Safari.
+
 # 2.3.0
 Added helpers:
 - `isRemotePlaybackApiSupported()`
