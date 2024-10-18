@@ -248,7 +248,7 @@
         if (isFirefox() && getFirefoxVersion() >= 69) {
             return true;
         }
-        const video = document.createElement('video');
+        const video = getDefaultVideoElement();
         return 'pictureInPictureEnabled' in document || 'webkitPresentationMode' in video;
     }
     function isDocumentPipSupported() {
