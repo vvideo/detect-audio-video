@@ -11,3 +11,4 @@ export * from './contentTypes/index';
 export * from './utils/index';
 export * from './videoelement';
 export * from './platform';
+export * from './webrtc';

@@ -78,6 +78,10 @@ Detect audio and video features in browser.
 ### 🕍 Platform
 - Standalone
 
+### WebRTC
+- Support
+- Audio and video codecs
+
 ## Install
 `npm i --save-dev detect-audio-video`
 
