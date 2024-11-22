@@ -1,3 +1,7 @@
+# 2.4.0
+- Detect if system supports WebRTC.
+- Helpers for get audio and video codes for WebRTC.
+
 # 2.3.1
 Small fix for `isRemotePlaybackApiSupported()`, added support for Safari.
 
