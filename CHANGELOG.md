@@ -1,3 +1,6 @@
+# 2.4.2
+Fix typos.
+
 # 2.4.1
 Fix for `isWebRTCSupported`.
 

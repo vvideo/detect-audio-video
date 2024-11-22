@@ -9,7 +9,7 @@ export function isWebRTCSupported() {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_video_codecs
-export function geWebRTCVideoCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
+export function getWebRTCVideoCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
     const codecs = window.RTCRtpSender?.getCapabilities('video')?.codecs || [];
 
     return onlyMedia ?
@@ -18,6 +18,6 @@ export function geWebRTCVideoCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
 };
 
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_audio_codecs
-export function geWebRTCAudioCodecs(): RTCRtpCodec[] {
+export function getWebRTCAudioCodecs(): RTCRtpCodec[] {
     return window.RTCRtpSender?.getCapabilities('audio')?.codecs || [];
 };
