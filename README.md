@@ -78,7 +78,7 @@ Detect audio and video features in browser.
 ### 🕍 Platform
 - Standalone
 
-### WebRTC
+### ✨ WebRTC
 - Support
 - Audio and video codecs
 
