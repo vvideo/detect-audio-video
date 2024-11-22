@@ -1,10 +1,12 @@
 // Detect if system supports WebRTC 1.0 or WebRTC 1.1.
-export const isWebRTCSupported = [
-    'RTCPeerConnection',
-    'webkitRTCPeerConnection',
-    'mozRTCPeerConnection',
-    'RTCIceGatherer'
-].some(item => item in window);
+export function isWebRTCSupported() {
+    return [
+        'RTCPeerConnection',
+        'webkitRTCPeerConnection',
+        'mozRTCPeerConnection',
+        'RTCIceGatherer'
+    ].some(item => item in window);
+}
 
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_video_codecs
 export function geWebRTCVideoCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
