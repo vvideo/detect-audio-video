@@ -8,16 +8,20 @@ export function isWebRTCSupported() {
     ].some(item => item in window);
 }
 
+function mediaFilter(codec: RTCRtpCodec): boolean {
+    return codec.mimeType.search('(red|fec|rtx|telephone-event)$') === -1
+}
+
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_video_codecs
 export function getWebRTCVideoCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
     const codecs = window.RTCRtpSender?.getCapabilities('video')?.codecs || [];
 
-    return onlyMedia ?
-        codecs.filter(item => item.mimeType.search('(red|fec|rtx)$') === -1) :
-        codecs;
+    return onlyMedia ? codecs.filter(mediaFilter) : codecs;
 };
 
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_audio_codecs
-export function getWebRTCAudioCodecs(): RTCRtpCodec[] {
-    return window.RTCRtpSender?.getCapabilities('audio')?.codecs || [];
+export function getWebRTCAudioCodecs(onlyMedia?: boolean): RTCRtpCodec[] {
+    const codecs = window.RTCRtpSender?.getCapabilities('audio')?.codecs || [];
+
+    return onlyMedia ? codecs.filter(mediaFilter) : codecs
 };
