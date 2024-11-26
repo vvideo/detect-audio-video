@@ -1,3 +1,6 @@
+# 2.5.0
+Added media filter for `geWebRTCAudioCodecs(onlyMedia?: boolean)`.
+
 # 2.4.2
 Fix typos.
 
