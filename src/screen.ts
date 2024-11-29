@@ -87,10 +87,13 @@ const SCREEN_8K = [
 ];
 
 // 5760×3240, 6016×3200, 6016×3384, 6144×3240, 6144×3456, 6400×4096
-const SCREEN_6K = [[5760, 3240], [6016, 3200], [6016, 3384], [6144, 3240], [6144, 3456], [6400, 4096]];
+const SCREEN_6K = [[5760, 3240], [6016, 3200], [6016, 3384] /* Apple Pro Display XDR */, [6144, 3240], [6144, 3456], [6400, 4096]];
 
 // 5120×1440, 5120×2160, 5120×2700, 5120×2880, 5120×3840, 5280×2160
-const SCREEN_5K = [[5120, 1440], [5120, 2160], [5120, 2700], [5120, 2880], [5120, 3840], [5280, 2160]];
+const SCREEN_5K = [[5120, 1440], [5120, 2160], [5120, 2700], [5120, 2880] /* Apple 27” iMac */, [5120, 3840], [5280, 2160]];
+
+// 4480×2520
+const SCREEN_4d5K = [[4480, 2520 /* Apple iMac 24”*/ ]];
 
 // 3656×2664, 3840×2160, 3996×2160, 4096×1716, 4096×2160, 4096×3072
 const SCREEN_4K = [[3656, 2664], [3840, 2160], [3996, 2160], [4096, 1716], [4096, 2160], [4096, 3072]];
@@ -134,6 +137,10 @@ export function is6KScreenSupported(width = getScreenWidth(), height = getScreen
 
 export function is5KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
     return isMoreOrEqual(SCREEN_5K, width, height);
+}
+
+export function is4dot5KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
+    return isMoreOrEqual(SCREEN_4d5K, width, height);
 }
 
 export function is4KScreenSupported(width = getScreenWidth(), height = getScreenHeight()) {
@@ -218,6 +225,10 @@ export function getResolutionBadge(width = getScreenWidth(), height = getScreenH
         {
             sizes: SCREEN_4K,
             title: '4K'
+        },
+        {
+            sizes: SCREEN_4d5K,
+            title: '4.5K'
         },
         {
             sizes: SCREEN_5K,
