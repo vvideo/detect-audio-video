@@ -1,3 +1,6 @@
+# 2.6.0
+Added 4.5K resolution.
+
 # 2.5.0
 Added media filter for `getWebRTCAudioCodecs(onlyMedia?: boolean)`.
 
