@@ -9,7 +9,7 @@ export function isWebRTCSupported() {
 }
 
 function mediaFilter(codec: RTCRtpCodec): boolean {
-    return codec.mimeType.search('(red|fec|rtx|telephone-event)$') === -1
+    return codec.mimeType.search('(CN|red|fec|rtx|telephone-event)$') === -1
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/WebRTC_codecs#supported_video_codecs

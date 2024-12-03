@@ -1,3 +1,6 @@
+# 2.6.1
+Fix for WebRTC media filter.
+
 # 2.6.0
 Added 4.5K resolution.
 
