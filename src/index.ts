@@ -12,3 +12,4 @@ export * from './utils/index';
 export * from './videoelement';
 export * from './platform';
 export * from './webrtc';
+export * from './gamepad/index';
