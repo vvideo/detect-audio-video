@@ -1,3 +1,6 @@
+# 2.7.1
+Fix parser for PS5 and Firefox.
+
 # 2.7.0
 Add parser for gamepad names.
 
