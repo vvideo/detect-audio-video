@@ -1,3 +1,6 @@
+# 2.7.0
+Add parser for gamepad names.
+
 # 2.6.1
 Fix for WebRTC media filter.
 
