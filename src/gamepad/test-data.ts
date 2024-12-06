@@ -9,6 +9,42 @@ export const tests: Array<[string, {
     isStandardGamepad?: boolean;
 } ]> = [
     [
+        // PS5 DualSense, MacOS Firefox 133.0
+        '54c-ce6-DualSense Wireless Controller',
+        {
+            name: 'Wireless Controller',
+            originalName: '54c-ce6-DualSense Wireless Controller',
+            originalVendorId: '54c',
+            originalProductId: 'ce6',
+            productId: 3302,
+            vendorId: 1356
+        }
+    ],
+    [
+        // PS5 DualSense, MacOS Safari 18.1.1
+        'DualSense Wireless Controller Extended Gamepad',
+        {
+            name: 'DualSense Wireless Controller Extended Gamepad',
+            originalName: 'DualSense Wireless Controller Extended Gamepad',
+            originalVendorId: undefined,
+            originalProductId: undefined,
+            productId: undefined,
+            vendorId: undefined
+        }
+    ],
+    [
+        // PS5 DualSense, MacOS Chrome 131.0
+        'DualSense Wireless Controller (STANDARD GAMEPAD Vendor: 054c Product: 0ce6)',
+        {
+            name: 'DualSense Wireless Controller',
+            originalName: 'DualSense Wireless Controller (STANDARD GAMEPAD Vendor: 054c Product: 0ce6)',
+            originalVendorId: '054c',
+            originalProductId: '0ce6',
+            productId: 3302,
+            vendorId: 1356
+        }
+    ],
+    [
         'Wireless Controller (Vendor: 054c Product: 0ce6)',
         {
             name: 'Wireless Controller',

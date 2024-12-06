@@ -1,5 +1,5 @@
 export function parseGamepadName(originalName: string) {
-    let result = originalName.match(/vendor: ([\da-f]{4}) product: ([\da-f]{4})/i);
+    let result = originalName.match(/vendor: ([\da-f]+) product: ([\da-f]+)/i);
     let name = originalName.split(/ \(/)[0];
 
     const isXInput = originalName.search(/XInput/i) !== -1 ? true : undefined;
@@ -7,7 +7,7 @@ export function parseGamepadName(originalName: string) {
 
 
     if (!result) {
-        result = originalName.match(/^([\da-f]{4})-([\da-f]{4})-/i);
+        result = originalName.match(/^([\da-f]+)-([\da-f]+)-/i);
 
         if (!result) {
             return {
