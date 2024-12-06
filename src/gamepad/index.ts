@@ -13,13 +13,6 @@ export function parseGamepadName(originalName: string) {
             return {
                 originalName,
                 name: name.trim(),
-
-                originalVendorId: undefined,
-                vendorId: undefined,
-
-                originalProductId: undefined,
-                productId: undefined,
-
                 isXInput,
                 isStandardGamepad,
             };

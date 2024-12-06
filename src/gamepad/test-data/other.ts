@@ -1,49 +1,6 @@
-export const tests: Array<[string, {
-    name: string;
-    originalName: string;
-    originalVendorId?: string;
-    vendorId?: number;
-    originalProductId?: string;
-    productId?: number;
-    isXInput?: boolean;
-    isStandardGamepad?: boolean;
-} ]> = [
-    [
-        // PS5 DualSense, MacOS Firefox 133.0
-        '54c-ce6-DualSense Wireless Controller',
-        {
-            name: 'Wireless Controller',
-            originalName: '54c-ce6-DualSense Wireless Controller',
-            originalVendorId: '54c',
-            originalProductId: 'ce6',
-            productId: 3302,
-            vendorId: 1356
-        }
-    ],
-    [
-        // PS5 DualSense, MacOS Safari 18.1.1
-        'DualSense Wireless Controller Extended Gamepad',
-        {
-            name: 'DualSense Wireless Controller Extended Gamepad',
-            originalName: 'DualSense Wireless Controller Extended Gamepad',
-            originalVendorId: undefined,
-            originalProductId: undefined,
-            productId: undefined,
-            vendorId: undefined
-        }
-    ],
-    [
-        // PS5 DualSense, MacOS Chrome 131.0
-        'DualSense Wireless Controller (STANDARD GAMEPAD Vendor: 054c Product: 0ce6)',
-        {
-            name: 'DualSense Wireless Controller',
-            originalName: 'DualSense Wireless Controller (STANDARD GAMEPAD Vendor: 054c Product: 0ce6)',
-            originalVendorId: '054c',
-            originalProductId: '0ce6',
-            productId: 3302,
-            vendorId: 1356
-        }
-    ],
+import { TestExpectedData } from './type';
+
+export const tests: TestExpectedData = [
     [
         'Wireless Controller (Vendor: 054c Product: 0ce6)',
         {
@@ -82,11 +39,7 @@ export const tests: Array<[string, {
         'Wireless Controller Extended Gamepad',
         {
             name: 'Wireless Controller Extended Gamepad',
-            originalName: 'Wireless Controller Extended Gamepad',
-            originalVendorId: undefined,
-            originalProductId: undefined,
-            vendorId: undefined,
-            productId: undefined
+            originalName: 'Wireless Controller Extended Gamepad'
         }
     ],
     [
@@ -117,13 +70,8 @@ export const tests: Array<[string, {
         'DUALSHOCK 4 Wireless Controller Extended Gamepad',
         {
             name: 'DUALSHOCK 4 Wireless Controller Extended Gamepad',
-            originalName: 'DUALSHOCK 4 Wireless Controller Extended Gamepad',
-            originalVendorId: undefined,
-            originalProductId: undefined,
-            productId: undefined,
-            vendorId: undefined
+            originalName: 'DUALSHOCK 4 Wireless Controller Extended Gamepad'
         }
-
     ],
     [
         'USB Gamepad (Vendor: 0810 Product: 0001)',
@@ -276,8 +224,6 @@ export const tests: Array<[string, {
         {
             name: 'xinput',
             originalName: 'xinput',
-            originalVendorId: undefined,
-            originalProductId: undefined,
             isXInput: true
         }
     ],
@@ -322,8 +268,6 @@ export const tests: Array<[string, {
         {
             name: 'Xbox 360 Controller',
             originalName: 'Xbox 360 Controller (XInput STANDARD GAMEPAD)',
-            originalVendorId: undefined,
-            originalProductId: undefined,
             isStandardGamepad: true,
             isXInput: true
         }
