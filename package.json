@@ -1,6 +1,6 @@
 {
   "name": "detect-audio-video",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "Detect audio and video features in browser",
   "module": "dist/index.js",
   "type": "module",
@@ -30,7 +30,7 @@
     "del-cli": "^6.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "rollup": "^4.28.0",
+    "rollup": "^4.28.1",
     "ts-jest": "^29.2.5",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2"
