@@ -2,7 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/detect-audio-video.svg?style=flat)](https://www.npmjs.com/package/detect-audio-video)
 [![NPM downloads](https://img.shields.io/npm/dm/detect-audio-video.svg?style=flat)](https://www.npmjs.com/package/detect-audio-video)
-[![install size](https://packagephobia.com/badge?p=detect-audio-video)](https://packagephobia.com/result?p=detect-audio-video)
 
 Detect audio and video features in browser.
 
