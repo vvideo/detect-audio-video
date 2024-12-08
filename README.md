@@ -81,6 +81,9 @@ Detect audio and video features in browser.
 - Support
 - Audio and video codecs
 
+### 🎮 Gamepad
+- Parser for gamepad name
+
 ## Install
 `npm i --save-dev detect-audio-video`
 
