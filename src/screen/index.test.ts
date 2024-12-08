@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { getResolutionBadge, isFullHDScreenSupported, isHDScreenSupported } from './screen';
+import { getResolutionBadge, isFullHDScreenSupported, isHDScreenSupported } from './size';
 
 describe('Screen', () => {
     it('#isHDScreenSupported', () => {

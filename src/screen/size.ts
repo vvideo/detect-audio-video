@@ -1,9 +1,3 @@
-declare global {
-    interface Window {
-        Hisense_GetSupportForHDR?: () => string;
-    }
-}
-
 export function getDevicePixelRatio() {
     return window.devicePixelRatio || 1;
 }
@@ -14,60 +8,6 @@ export function getScreenWidth() {
 
 export function getScreenHeight() {
     return screen.height * getDevicePixelRatio();
-}
-
-export function getScreenDepth() {
-    return screen.colorDepth;
-}
-
-export function isHighDynamicRangeSupported(win: Window = window): boolean | undefined {
-    if (win.Hisense_GetSupportForHDR) {
-        return win.Hisense_GetSupportForHDR() !== 'not support';
-    }
-
-    // @ts-ignore
-    const cast = win.cast;
-    // Chromecast
-    if (cast) {
-        return Boolean(cast.framework?.system?.DeviceCapabilities?.IS_HDR_SUPPORTED);
-    }
-
-    try {
-        const isHighSupported = checkDynamicRange('high', win);
-        const isStandardSupported = checkDynamicRange('standard', win);
-
-        if (!isStandardSupported) {
-            return undefined;
-        }
-
-        return Boolean(isStandardSupported && isHighSupported);
-    } catch(e) {}
-
-    return undefined;
-}
-
-function checkDynamicRange(type: 'high' | 'standard', win: Window = window) {
-    return win.matchMedia && win.matchMedia(`(dynamic-range: ${type})`).matches;
-}
-
-export function isHighVideoDynamicRangeSupported(win: Window = window): boolean | undefined {
-    try {
-        const isHighSupported = checkVideoDynamicRange('high', win);
-        const isStandardSupported = checkVideoDynamicRange('standard', win);
-
-        if (!isStandardSupported) {
-            return undefined;
-        }
-
-        return Boolean(isStandardSupported && isHighSupported);
-    } catch(e) {}
-
-    return undefined;
-}
-
-
-function checkVideoDynamicRange(type: 'high' | 'standard', win: Window = window) {
-    return win.matchMedia && win.matchMedia(`(video-dynamic-range: ${type})`).matches;
 }
 
 // 30720×17280
@@ -270,24 +210,4 @@ export function getResolutionBadge(width = getScreenWidth(), height = getScreenH
     }
 
     return supportedSize;
-}
-
-export function isWideGamutSupported(win: Window = window): boolean {
-    return isSrgbSupported(win) || isRec2020Supported(win);
-}
-
-export function isSrgbSupported(win: Window = window): boolean {
-    return checkColorSpace('srgb', win);
-}
-
-export function isP3Supported(win: Window = window): boolean {
-    return checkColorSpace('p3', win);
-}
-
-export function isRec2020Supported(win: Window = window): boolean {
-    return checkColorSpace('rec2020', win);
-}
-
-function checkColorSpace(type: 'srgb' | 'p3' | 'rec2020', win: Window = window): boolean {
-    return win.matchMedia && win.matchMedia(`(color-gamut: ${type})`).matches;
 }
