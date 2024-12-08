@@ -4,7 +4,7 @@ export * from './image';
 export * from './device/index';
 export * from './stream';
 export * from './dom';
-export * from './screen/screen';
+export * from './screen/index';
 export * from './gpu';
 export * from './drm/index';
 export * from './contentTypes/index';
