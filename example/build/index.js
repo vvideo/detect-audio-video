@@ -90,6 +90,7 @@
     function getScreenHeight() {
         return screen.height * getDevicePixelRatio();
     }
+
     function isHighDynamicRangeSupported(win = window) {
         var _a, _b, _c;
         if (win.Hisense_GetSupportForHDR) {
