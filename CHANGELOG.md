@@ -1,3 +1,8 @@
+# 2.8.0
+Added helpers:
+- `isAndroid()`
+- `getAndroidVersion()`
+
 # 2.7.2
 Fixed detection of codecs for old iPad, PS4 and ...
 
