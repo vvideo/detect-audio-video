@@ -1,3 +1,3 @@
 export function isAndroid() {
-    return /Android/.test(window.navigator.userAgent);
+    return /Android/.test(navigator.userAgent);
 }

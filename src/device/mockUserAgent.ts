@@ -1,4 +1,4 @@
-const initialUserAgent = window.navigator.userAgent;
+const initialUserAgent = navigator.userAgent;
 
 export function mockUserAgent(userAgent: string) {
     Object.defineProperty(navigator, 'userAgent', {

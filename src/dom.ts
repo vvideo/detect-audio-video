@@ -19,7 +19,7 @@ export function isEmeSupported() {
         !isSsr &&
         window.MediaKeys &&
         // @ts-ignore
-        window.navigator?.requestMediaKeySystemAccess &&
+        navigator?.requestMediaKeySystemAccess &&
         window.MediaKeySystemAccess?.prototype.getConfiguration
     );
 }

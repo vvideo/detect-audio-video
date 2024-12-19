@@ -4,6 +4,6 @@ export function getAndroidVersion() {
 }
 
 export function getAndroidVersionAsString() {
-    const match = window.navigator.userAgent.match(/Android\s([0-9.]+)/);
+    const match = navigator.userAgent.match(/Android\s([0-9.]+)/);
     return match ? (match[1] || '') : '';
 }
