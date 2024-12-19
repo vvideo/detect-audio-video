@@ -1,3 +1,6 @@
+# 2.9.0
+Added `isIOS()` helper.
+
 # 2.8.0
 Added helpers:
 - `isAndroid()`

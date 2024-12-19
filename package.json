@@ -1,6 +1,6 @@
 {
   "name": "detect-audio-video",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "Detect audio and video features in browser",
   "module": "dist/index.js",
   "type": "module",
