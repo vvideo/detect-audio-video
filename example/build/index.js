@@ -219,13 +219,13 @@
             typeof window.MediaSource.isTypeSupported === 'function');
     }
     function isEmeSupported() {
-        var _a, _b;
+        var _a;
         return Boolean(!isSsr &&
             window.MediaKeys &&
             (
             // @ts-ignore
-            (_a = window.navigator) === null || _a === void 0 ? void 0 : _a.requestMediaKeySystemAccess) &&
-            ((_b = window.MediaKeySystemAccess) === null || _b === void 0 ? void 0 : _b.prototype.getConfiguration));
+            navigator === null || navigator === void 0 ? void 0 : navigator.requestMediaKeySystemAccess) &&
+            ((_a = window.MediaKeySystemAccess) === null || _a === void 0 ? void 0 : _a.prototype.getConfiguration));
     }
     function isMmsSupported() {
         return Boolean(!isSsr &&
@@ -239,7 +239,7 @@
     }
 
     function isFirefox() {
-        return /firefox/.test(window.navigator.userAgent.toLowerCase());
+        return /firefox/.test(navigator.userAgent.toLowerCase());
     }
 
     function isPipSupported() {
