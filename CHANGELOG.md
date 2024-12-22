@@ -1,3 +1,6 @@
+# 2.9.1
+Fixed typo for `isWideGamutSupported()`.
+
 # 2.9.0
 Added `isIOS()` helper.
 
