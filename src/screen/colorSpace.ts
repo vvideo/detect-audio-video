@@ -1,5 +1,5 @@
 export function isWideGamutSupported(win: Window = window): boolean {
-    return isSrgbSupported(win) || isRec2020Supported(win);
+    return isP3Supported(win) || isRec2020Supported(win);
 }
 
 export function isSrgbSupported(win: Window = window): boolean {
