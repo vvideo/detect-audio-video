@@ -1,3 +1,12 @@
+# 3.0.0
+Added helpers:
+- `isSafari()`
+- `isDesktopSafari()`
+
+Added detection of Dolby Atmos for Safari.
+Before: `isDolbyAtmosSupported(): boolean`
+After: `isDolbyAtmosSupported(): Promise<boolean>`
+
 # 2.9.1
 Fixed typo for `isWideGamutSupported()`.
 
