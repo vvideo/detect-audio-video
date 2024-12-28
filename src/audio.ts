@@ -13,7 +13,9 @@ import {
     MP3_CONTENT_TYPE,
     MP4_AUDIO_CONTENT_TYPE,
     ALAC_CONTENT_TYPE,
+    DOLBY_ATMOS_CONTENT_TYPE,
 } from './contentTypes/audio';
+import { isSafari } from './device/isSafari';
 import { isContentTypeSupported } from './utils/isContentTypeSupported';
 import { isSsr } from './utils/isSsr';
 
@@ -43,28 +45,43 @@ export function isDolbyDigitalPlusSupported() {
     return isContentTypeSupported(DOLBY_EC3_CONTENT_TYPE);
 }
 
-// audio/mp4; codecs="ec-3"; spatialRendering=true - no support
-export function isDolbyAtmosSupported() {
-    if (isSsr) {
-        return false;
-    }
+export function isDolbyAtmosSupported(): Promise<boolean> {
+    return new Promise(resolve => {
+        if (isSsr) {
+            return resolve(false);
+        }
 
-    // @ts-ignore
-    const cast = window.cast;
-    // Chromecast
-    if (cast) {
-        return Boolean(cast.framework?.system?.DeviceCapabilities?.IS_DOLBY_ATMOS_SUPPORTED);
-    }
+        // @ts-ignore
+        const cast = window.cast;
+        // Chromecast
+        if (cast) {
+            // 'audio/mp4; codecs="ec-3"; spatialRendering=true' - support only on Chromecast
+            return resolve(MediaSource.isTypeSupported(DOLBY_ATMOS_CONTENT_TYPE));
+        }
 
-    let result = false;
-    // Hisense VIDAA
-    if (window.Hisense_GetSupportForDolbyAtmos) {
-        try {
-            result = window.Hisense_GetSupportForDolbyAtmos();
-        } catch(e) {}
-    }
+        // Hisense VIDAA
+        if (window.Hisense_GetSupportForDolbyAtmos) {
+            let result = false;
+            try {
+                result = window.Hisense_GetSupportForDolbyAtmos();
+            } catch(e) {}
+            return resolve(result);
+        }
 
-    return result;
+        // https://webapi.streaming.dolby.com/v0_9/help_files/topics/checking_immersive_capability.html
+        if (isSafari() && navigator.mediaCapabilities) {
+            navigator.mediaCapabilities.decodingInfo({
+                type: 'media-source',
+                audio: {
+                    contentType: DOLBY_EC3_CONTENT_TYPE,
+                    channels: '16',
+                    spatialRendering: true
+                }
+            }).then(data => resolve(data.supported)).catch(() => resolve(false));
+        } else {
+            resolve(false);
+        }
+    });
 }
 
 export function isMpegHAudioSupported() {
