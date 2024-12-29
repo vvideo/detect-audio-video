@@ -7,9 +7,12 @@ Detect audio and video features in browser.
 
 ## [Demo](https://checkdevice.online/en/video/)
 
+## Install
+`npm i --save-dev detect-audio-video`
+
 ## Features
 
-### 🖥️ Screen
+### 🖥️ [Screen](https://checkdevice.online/en/screen/)
 - Size
 - Device pixel ratio
 - HDR support
@@ -17,7 +20,7 @@ Detect audio and video features in browser.
 - Color spaces
 - [Aspect ratio](https://github.com/vvideo/calc-aspect-ratio)
 
-### ⚙️ GPU
+### ⚙️ [GPU](https://checkdevice.online/en/gpu/)
 - Vendor
 - Renderer
 
@@ -29,14 +32,13 @@ import {
     isAppleSilicon,
 } from 'detect-audio-video';
 
-console.log('getGpuVendor: ', getGpuVendor()); // string
-console.log('getGpuRenderer: ', getGpuRenderer()); // string
-console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // 
-// boolean
+console.log('getGpuVendor: ', getGpuVendor()); // string, example: "Apple"
+console.log('getGpuRenderer: ', getGpuRenderer()); // string, example: "Apple M1, or similar"
+console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // boolean
 console.log('isAppleSilicon: ', isAppleSilicon()); // boolean
 ```
 
-### 🔒 DRM
+### 🔒 [DRM](https://checkdevice.online/en/video/)
 - Microsoft PlayReady SL150, SL2000, SL3000
 - Google Widevine Modular L1, L3
 - Apple FairPlay
@@ -60,7 +62,7 @@ console.log('isNativeHlsSupported: ', isNativeHlsSupported()); // boolean
 console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 ```
 
-### ⏯ HTMLVideoElement features
+### ⏯ [HTMLVideoElement features](https://checkdevice.online/en/video/)
 - Media Source Extensions
 - Media Source Extensions in Workers
 - Encrypted Media Extensions
@@ -70,7 +72,7 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - Cast to AirPlay
 - Remote Playback API
 
-### 📹 Video codecs
+### 📹 [Video codecs](https://checkdevice.online/en/video/)
 - H.264
 - H.265 (HEVC)
 - H.266 (VVC)
@@ -80,7 +82,7 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - VP9
 - AV1
 
-### 🔊 Audio codecs
+### 🔊 [Audio codecs](https://checkdevice.online/en/audio/)
 - AAC
 - Opus
 - Vorbis
@@ -90,7 +92,7 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - EC-3 (Dolby Digital+)
 - Dolby Atmos
 
-### 🖼️ Image formats
+### 🖼️ [Image formats](https://checkdevice.online/en/video/)
 - GIF
 - PNG
 - APNG
@@ -101,25 +103,15 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - WEBP
 - SVG
 
-### 🕍 Platform
+### 🕍 [Platform](https://checkdevice.online/en/platform/)
 - Standalone
 
-### ✨ WebRTC
+### ✨ [WebRTC](https://checkdevice.online/en/webrtc/)
 - Support
 - Audio and video codecs
 
-### 🎮 Gamepad
+### 🎮 [Gamepad](https://checkdevice.online/en/gamepad/)
 - Parser for gamepad name
-
-## Install
-`npm i --save-dev detect-audio-video`
-
-## Using
-```js
-import { isAacSupported } from 'detect-audio-video';
-
-console.log('AAC supported', isAacSupported());
-```
 
 ## Links
 - [Check device online](https://checkdevice.online/en/video/)
