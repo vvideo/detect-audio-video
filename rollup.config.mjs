@@ -18,15 +18,4 @@ export default [
             nodeResolve(),
         ],
     },
-    {
-        input: 'example/index.ts',
-        output: {
-            format: 'umd',
-            file: './example/build/index.js'
-        },
-        plugins: [
-            typescript({ tsconfig: './tsconfig.common.json' }),
-            nodeResolve(),
-        ],
-    },
 ];

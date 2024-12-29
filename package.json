@@ -11,8 +11,8 @@
     "url": "git://github.com/vvideo/detect-audio-video.git"
   },
   "scripts": {
-    "clean": "del dist/*; del example/build/*",
-    "test": "npm run typecheck && jest ",
+    "clean": "del dist/*",
+    "test": "npm run typecheck && jest",
     "typecheck": "tsc --noEmit",
     "build": "npm run clean; rollup -c",
     "prepare": "npm run build"
@@ -55,7 +55,10 @@
     "ac-3",
     "ec-3",
     "hdr",
-    "dolby"
+    "dolby",
+    "wide gamut",
+    "gpu",
+    "codec"
   ],
   "files": [
     "dist",
