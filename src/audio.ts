@@ -77,7 +77,16 @@ export function isDolbyAtmosSupported(): Promise<boolean> {
                     channels: '16',
                     spatialRendering: true
                 }
-            }).then(data => resolve(data.supported)).catch(() => resolve(false));
+            }).then(data => {
+                const supported = Boolean(
+                    data.supported &&
+                    // Fix for old Safari without Dolby Atmos
+                    // @ts-ignore
+                    data.supportedConfiguration?.audio?.spatialRendering
+                );
+
+                resolve(supported);
+            }).catch(() => resolve(false));
         } else {
             resolve(false);
         }
