@@ -70,7 +70,7 @@ console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // boolean
 console.log('isAppleSilicon: ', isAppleSilicon()); // boolean
 ```
 
-### 🔒 [DRM](https://checkdevice.online/en/video/)
+### 🔒 [DRM](https://checkdevice.online/en/video/#drm)
 - Microsoft PlayReady SL150, SL2000, SL3000
 - Google Widevine Modular L1, L3
 - Apple FairPlay
@@ -94,7 +94,7 @@ console.log('isNativeHlsSupported: ', isNativeHlsSupported()); // boolean
 console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 ```
 
-### ⏯ [HTMLVideoElement features](https://checkdevice.online/en/video/)
+### ⏯ [HTMLVideoElement features](https://checkdevice.online/en/video/#htmlvideoelement-features)
 - Media Source Extensions
 - Media Source Extensions in Workers
 - Encrypted Media Extensions
@@ -104,7 +104,7 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - Cast to AirPlay
 - Remote Playback API
 
-### 📹 [Video codecs](https://checkdevice.online/en/video/)
+### 📹 [Video codecs](https://checkdevice.online/en/video/#video-codecs)
 - H.264
 - H.265 (HEVC)
 - H.266 (VVC)
@@ -124,7 +124,7 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - EC-3 (Dolby Digital+)
 - Dolby Atmos
 
-### 🖼️ [Image formats](https://checkdevice.online/en/video/)
+### 🖼️ [Image formats](https://checkdevice.online/en/video/#image-formats)
 - GIF
 - PNG
 - APNG
