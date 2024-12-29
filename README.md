@@ -20,6 +20,38 @@ Detect audio and video features in browser.
 - Color spaces
 - [Aspect ratio](https://github.com/vvideo/calc-aspect-ratio)
 
+```js
+import {
+    isWideGamutSupported,
+    isSrgbSupported,
+    isP3Supported,
+    isRec2020Supported,
+    getDevicePixelRatio,
+    getScreenWidth,
+    getScreenHeight,
+    getResolutionBadge,
+    isHighDynamicRangeSupported,
+    isHighVideoDynamicRangeSupported,
+} from 'detect-audio-video';
+
+console.log('isWideGamutSupported: ', isWideGamutSupported()); // boolean
+console.log('isSrgbSupported: ', isSrgbSupported()); // boolean
+console.log('isP3Supported: ', isP3Supported()); // boolean
+console.log('isRec2020Supported: ', isRec2020Supported()); // boolean
+
+console.log('getDevicePixelRatio: ', getDevicePixelRatio()); // number
+
+// Get screen width with device pixel ratio
+console.log('getScreenWidth: ', getScreenWidth()); // number
+// Get screen height with device pixel ratio
+console.log('getScreenHeight: ', getScreenHeight()); // number
+
+console.log('getResolutionBadge: ', getResolutionBadge()); // string, example: "4K"
+
+console.log('isHighDynamicRangeSupported: ', isHighDynamicRangeSupported()); // boolean
+console.log('isHighVideoDynamicRangeSupported: ', isHighVideoDynamicRangeSupported()); // boolean
+```
+
 ### ⚙️ [GPU](https://checkdevice.online/en/gpu/)
 - Vendor
 - Renderer
