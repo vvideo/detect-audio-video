@@ -21,6 +21,21 @@ Detect audio and video features in browser.
 - Vendor
 - Renderer
 
+```js
+import {
+    getGpuVendor,
+    getGpuRenderer,
+    hasHardwareAcceleration,
+    isAppleSilicon,
+} from 'detect-audio-video';
+
+console.log('getGpuVendor: ', getGpuVendor()); // string
+console.log('getGpuRenderer: ', getGpuRenderer()); // string
+console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // 
+// boolean
+console.log('isAppleSilicon: ', isAppleSilicon()); // boolean
+```
+
 ### 🔒 DRM
 - Microsoft PlayReady SL150, SL2000, SL3000
 - Google Widevine Modular L1, L3
@@ -32,6 +47,18 @@ Detect audio and video features in browser.
 - DASH
 - HLS
 - MSS
+
+```js
+import {
+    isNativeHlsSupported,
+    isNativeMpdSupported,
+    isNativeMssSupported,
+} from 'detect-audio-video';
+
+console.log('isNativeMssSupported: ', isNativeMssSupported()); // boolean
+console.log('isNativeHlsSupported: ', isNativeHlsSupported()); // boolean
+console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
+```
 
 ### ⏯ HTMLVideoElement features
 - Media Source Extensions
