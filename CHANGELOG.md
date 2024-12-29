@@ -1,3 +1,12 @@
+# 3.1.0
+- Fix for detection of Dolby Atmos for old Safari.
+- Added PlayStation helpers:
+  + `isPlayStationVita()`
+  + `isPlayStation3()`
+  + `isPlayStation4()`
+  + `isPlayStation5()`
+  + `isPlayStation6()`
+
 # 3.0.0
 Added helpers:
 - `isSafari()`
