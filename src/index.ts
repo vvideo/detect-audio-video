@@ -1,6 +1,6 @@
 export * from './audio';
 export * from './video';
-export * from './image';
+export * from './image/index';
 export * from './device/index';
 export * from './stream';
 export * from './dom';
