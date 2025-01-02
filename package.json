@@ -1,6 +1,6 @@
 {
   "name": "detect-audio-video",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Detect audio and video features in browser",
   "module": "dist/index.js",
   "type": "module",
@@ -15,7 +15,8 @@
     "test": "npm run typecheck && jest",
     "typecheck": "tsc --noEmit",
     "build": "npm run clean; rollup -c",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "smallest": "node ./tools/smallest.mjs"
   },
   "author": {
     "name": "Denis Seleznev",
