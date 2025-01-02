@@ -134,6 +134,9 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - AVIF
 - WEBP
 - SVG
+- ICO
+- BMP
+- TIFF
 
 ### 🕍 [Platform](https://checkdevice.online/en/platform/)
 - Standalone
