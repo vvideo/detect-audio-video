@@ -1,3 +1,6 @@
+# 3.2.1
+Small fixes for smallest images.
+
 # 3.2.0
 - Fixes for image format support detection.
 - Added image formats:
