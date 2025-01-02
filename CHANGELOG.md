@@ -1,3 +1,10 @@
+# 3.2.0
+- Fixes for image format support detection.
+- Added image formats:
+  + BMP
+  + ICO
+  + TIFF
+
 # 3.1.0
 - Fix for detection of Dolby Atmos for old Safari.
 - Added PlayStation helpers:
