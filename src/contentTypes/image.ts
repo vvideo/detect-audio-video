@@ -8,3 +8,6 @@ export const WEBP_CONTENT_TYPE = 'image/webp';
 export const HEIF_CONTENT_TYPE = 'image/heif';
 export const HEIC_CONTENT_TYPE = 'image/heic';
 export const AVIF_CONTENT_TYPE = 'image/avif';
+export const ICO_CONTENT_TYPE = 'image/vnd.microsoft.icon';
+export const BMP_CONTENT_TYPE = 'image/bmp';
+export const TIFF_CONTENT_TYPE = 'image/tiff';
