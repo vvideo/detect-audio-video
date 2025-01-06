@@ -1,3 +1,7 @@
+export function isPlayStation() {
+    return /PlayStation/i.test(navigator.userAgent);
+}
+
 export function isPlayStationVita() {
     return /PlayStation Vita/i.test(navigator.userAgent);
 }

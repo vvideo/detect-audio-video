@@ -1,7 +1,26 @@
-import { isPlayStationVita, isPlayStation3, isPlayStation4, isPlayStation5 } from './isPlayStation';
+import {
+    isPlayStationVita,
+    isPlayStation3,
+    isPlayStation4,
+    isPlayStation5,
+    isPlayStation,
+} from './isPlayStation';
 import { mockUserAgent, unmockUserAgent } from './mockUserAgent';
 
 describe('device', () => {
+    it('#isPlayStation', () => {
+        mockUserAgent('Mozilla/5.0 (PLAYSTATION 3; 3.55)');
+        expect(isPlayStation()).toBeTruthy();
+
+        mockUserAgent('Mozilla/5.0 (PlayStation 5 3.03/SmartTV) AppleWebKit/605.1.15 (KHTML, like Gecko)');
+        expect(isPlayStation()).toBeTruthy();
+
+        mockUserAgent('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)');
+        expect(isPlayStation()).toBeFalsy();
+
+        unmockUserAgent();
+    });
+ 
     it('#isPlayStation3', () => {
         mockUserAgent('Mozilla/5.0 (PLAYSTATION 3; 3.55)');
         expect(isPlayStation3()).toBeTruthy();
