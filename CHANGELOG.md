@@ -1,3 +1,13 @@
+# 4.0.0
+Add helpers:
+- `hasTouchScreen()`
+- `getMaxTouchPoints()`
+- `isPlayStation()`
+
+The result of functions `getWebRTCAudioCodecs()` and `getWebRTCVideoCodecs()` is extended.
+Before: `getWebRTCAudioCodecs(onlyMedia?: boolean): RTCRtpCodec[]`
+After: `getWebRTCAudioCodecs(onlyMedia?: boolean): { encoding: RTCRtpCodec[]; decoding: RTCRtpCodec[]; }`
+
 # 3.2.1
 Small fixes for smallest images.
 
