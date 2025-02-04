@@ -1,3 +1,6 @@
+# 4.1.0
+Added `isContentTypeSupportedAsync()` with `mediaCapabilities.decodingInfo`.
+
 # 4.0.0
 Add helpers:
 - `hasTouchScreen()`
