@@ -98,3 +98,29 @@ export function isAppleSilicon() {
     
     return false;
 }
+
+export function getGpuProblems(renderer = getGpuRenderer()): null | Array<'no driver' | 'no hardware acceleration'> {
+    // Firefox
+    // Examples:
+    // - Windows:
+    //     Vendor: "Google Inc. (Microsoft)"
+    //     Renderer: "ANGLE (Microsoft, Microsoft Basic Render Driver Direct3D11 vs_5_0 ps_5_0), or similar"
+    //
+    // - Ubuntu:
+    //     Vendor: "Mesa"
+    //     Renderer: "llvmpipe, or similar"
+    if (renderer.search('Microsoft Basic Render Driver') > -1 || renderer === 'llvmpipe, or similar') {
+        return ['no driver'];
+    }
+
+    // Chromium
+    // Examples:
+    // - Windows or Ubuntu
+    //     Vendor: "Google Inc. (Google)"
+    //     Renderer: "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    if (renderer.search('SwiftShader Device \\(Subzero\\) \\(0x0000C0DE\\)') > -1) {
+        return ['no driver', 'no hardware acceleration'];
+    }
+
+    return null;
+}

@@ -1,3 +1,6 @@
+# 4.2.0
+Added `getGpuProblems()` to detect if GPU driver is not installed.
+
 # 4.1.0
 Added `isContentTypeSupportedAsync()` with `mediaCapabilities.decodingInfo`.
 
