@@ -62,12 +62,14 @@ import {
     getGpuRenderer,
     hasHardwareAcceleration,
     isAppleSilicon,
+    getGpuProblems,
 } from 'detect-audio-video';
 
 console.log('getGpuVendor: ', getGpuVendor()); // string, example: "Apple"
 console.log('getGpuRenderer: ', getGpuRenderer()); // string, example: "Apple M1, or similar"
 console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // boolean
 console.log('isAppleSilicon: ', isAppleSilicon()); // boolean
+console.log('getGpuPromblems: ', getGpuProblems()); // null or ['no driver', ...]
 ```
 
 ### 🔒 [DRM](https://checkdevice.online/en/video/#drm)
