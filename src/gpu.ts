@@ -95,7 +95,7 @@ export function isAppleSilicon() {
     } catch {
         return false;
     }
-    
+
     return false;
 }
 
@@ -109,7 +109,12 @@ export function getGpuProblems(renderer = getGpuRenderer()): null | Array<'no dr
     // - Ubuntu:
     //     Vendor: "Mesa"
     //     Renderer: "llvmpipe, or similar"
-    if (renderer.search('Microsoft Basic Render Driver') > -1 || renderer === 'llvmpipe, or similar') {
+    if (
+        renderer.search('Microsoft Basic Render Driver') > -1 ||
+        renderer.search('Generic Renderer') > -1 ||
+        renderer === 'llvmpipe' ||
+        renderer === 'llvmpipe, or similar'
+    ) {
         return ['no driver'];
     }
 
