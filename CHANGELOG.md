@@ -1,3 +1,6 @@
+# 4.2.1
+Improvements for `getGpuProblems()`.
+
 # 4.2.0
 Added `getGpuProblems()` to detect if GPU driver is not installed.
 
