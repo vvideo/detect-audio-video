@@ -1,3 +1,7 @@
+# 4.3.0
+- Improvements for `getGpuProblems()`.
+- Added `isVirtualMachine()`.
+
 # 4.2.1
 Improvements for `getGpuProblems()`.
 
