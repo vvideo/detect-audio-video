@@ -63,13 +63,22 @@ import {
     hasHardwareAcceleration,
     isAppleSilicon,
     getGpuProblems,
+    isVirtualMachine,
 } from 'detect-audio-video';
 
-console.log('getGpuVendor: ', getGpuVendor()); // string, example: "Apple"
-console.log('getGpuRenderer: ', getGpuRenderer()); // string, example: "Apple M1, or similar"
+const gpuVendor = getGpuVendor();
+console.log('gpuVendor: ', gpuVendor); // string, example: "Apple"
+
+const gpuRenderer = getGpuRenderer();
+console.log('gpuRenderer: ', gpuRenderer); // string, example: "Apple M1, or similar"
+
 console.log('hasHardwareAcceleration: ', hasHardwareAcceleration()); // boolean
+
 console.log('isAppleSilicon: ', isAppleSilicon()); // boolean
-console.log('getGpuProblems: ', getGpuProblems()); // null or ['no driver', ...]
+
+console.log('gpuProblems: ', getGpuProblems()); // null or ['no driver', ...]
+
+console.log('isVirtualMachine: ', isVirtualMachine(gpuRenderer, gpuVendor)); // boolean
 ```
 
 ### 🔒 [DRM](https://checkdevice.online/en/video/#drm)
