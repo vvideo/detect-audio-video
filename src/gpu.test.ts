@@ -1,6 +1,6 @@
-import { getGpuProblems } from './gpu';
+import { getGpuProblems, isVirtualMachine } from './gpu';
 
-const tests: [string, Array<string> | null][] = [
+const testsGpuProblems: [string, Array<string> | null][] = [
     // Chrome
     ['ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)', null],
     ['', null],
@@ -18,13 +18,57 @@ const tests: [string, Array<string> | null][] = [
     ['ANGLE (Software Adapter Direct3D11 vs_4_1 ps_4_1)', ['no driver', 'no hardware acceleration']],
 ];
 
+const testsVirtualMachine: [string, string, boolean][] = [
+    [
+        'ANGLE (0x344C5250, Parallels Display Adapter (WDDM) (0x00353030) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+        'Google Inc. (0x344C5250)',
+        true,
+    ],
+    [
+        'ANGLE (0x000080EE, VirtualBox Graphics Adapter (WDDM) (0x0000BEEF) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+        'Google Inc. (0x000080EE)',
+        true,
+    ],
+    [
+        'ANGLE (Apple, ANGLE Metal Renderer: Apple Paravirtual device, Unspecified Version)',
+        'Google Inc. (Apple)',
+        true,
+    ],
+    [
+        'Android Emulator OpenGL ES Translator (Google SwiftShader)',
+        'Google (Google Inc.)',
+        true,
+    ],
+    [
+        'Mali-G52 MC2',
+        'ARM',
+        false
+    ],
+    [
+        'ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Max, Unspecified Version)',
+        'Google Inc. (Apple)',
+        false
+    ]
+];
+
 describe('GPU', () => {
     describe('#getGpuProblems', () => {
-        tests.forEach(item => {
+        testsGpuProblems.forEach(item => {
             const [renderer, expected] = item;
 
             it(renderer, () => {
                 expect(getGpuProblems(renderer))
+                    .toEqual(expected);
+            });
+        });
+    });
+
+    describe('#isVirtualMachine', () => {
+        testsVirtualMachine.forEach(item => {
+            const [renderer, vendor, expected] = item;
+
+            it(renderer, () => {
+                expect(isVirtualMachine(renderer, vendor))
                     .toEqual(expected);
             });
         });

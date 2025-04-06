@@ -135,3 +135,15 @@ export function getGpuProblems(renderer = getGpuRenderer()): null | Array<'no dr
 
     return null;
 }
+
+const VIRTUAL_MACHINES = [
+    'Apple Paravirtual device',
+    'Android Emulator',
+    'Parallels Display Adapter',
+    'VMware',
+    'VirtualBox Graphics Adapter',
+];
+
+export function isVirtualMachine(renderer: string, vendor: string) {
+    return VIRTUAL_MACHINES.some(item => (renderer + ' ' + vendor).search(item) > -1);
+}
