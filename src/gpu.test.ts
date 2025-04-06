@@ -14,6 +14,8 @@ const tests: [string, Array<string> | null][] = [
     ['llvmpipe', ['no driver']],
     // Firefox
     ['llvmpipe, or similar', ['no driver']],
+    // Chrome
+    ['ANGLE (Software Adapter Direct3D11 vs_4_1 ps_4_1)', ['no driver', 'no hardware acceleration']],
 ];
 
 describe('GPU', () => {

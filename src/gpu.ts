@@ -123,7 +123,13 @@ export function getGpuProblems(renderer = getGpuRenderer()): null | Array<'no dr
     // - Windows or Ubuntu
     //     Vendor: "Google Inc. (Google)"
     //     Renderer: "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
-    if (renderer.search('SwiftShader Device \\(Subzero\\) \\(0x0000C0DE\\)') > -1) {
+    // - Windows 7:
+    //     Vendor: "Google Inc."
+    //     Renderer: "ANGLE (Software Adapter Direct3D11 vs_4_1 ps_4_1)"
+    if (
+        renderer.search('SwiftShader Device \\(Subzero\\) \\(0x0000C0DE\\)') > -1 ||
+        renderer.search('Software Adapter') > -1
+    ) {
         return ['no driver', 'no hardware acceleration'];
     }
 
