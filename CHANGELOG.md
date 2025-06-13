@@ -1,3 +1,6 @@
+# 4.4.0
+- Added `getMacScreenInches()` and `getMacbookScreenInches()`.
+
 # 4.3.0
 - Improvements for `getGpuProblems()`.
 - Added `isVirtualMachine()`.
