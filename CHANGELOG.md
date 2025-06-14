@@ -1,3 +1,9 @@
+# 4.5.0
+Added content types for Apple ProRes:
+- ProRes 422, ProRes 422 HQ, ProRes 422 LT, ProRes 422 Proxy 
+- ProRes 4444, ProRes 4444 XQ
+- ProRes RAW, ProRes RAQ HQ
+
 # 4.4.0
 - Added `getMacScreenInches()` and `getMacbookScreenInches()`.
 
