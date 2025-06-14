@@ -17,6 +17,14 @@ import {
     VVCI_MAIN10_CONTENT_TYPE,
     AV1_MAIN10_CONTENT_TYPE,
     VP9_PROFILE2_LEVEL1_10BIT_CONTENT_TYPE,
+    APPLE_PRO_RES_422_CONTENT_TYPE,
+    APPLE_PRO_RES_422_HQ_CONTENT_TYPE,
+    APPLE_PRO_RES_422_LT_CONTENT_TYPE,
+    APPLE_PRO_RES_422_PROXY_CONTENT_TYPE,
+    APPLE_PRO_RES_4444_CONTENT_TYPE,
+    APPLE_PRO_RES_4444_XQ_CONTENT_TYPE,
+    APPLE_PRO_RES_RAW_CONTENT_TYPE,
+    APPLE_PRO_RES_RAW_HQ_CONTENT_TYPE,
 } from './contentTypes/video';
 import { isContentTypeSupported } from './utils/isContentTypeSupported';
 
@@ -93,4 +101,36 @@ export function isEvcBaselineSupported() {
 
 export function isEvcMainSupported() {
     return isContentTypeSupported(EVC_MAIN_CONTENT_TYPE);
+}
+
+export function isAppleProRes422Supported() {
+    return isContentTypeSupported(APPLE_PRO_RES_422_CONTENT_TYPE);
+}
+
+export function isAppleProRes422HQSupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_422_HQ_CONTENT_TYPE);
+}
+
+export function isAppleProRes422LTSupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_422_LT_CONTENT_TYPE);
+}
+
+export function isAppleProRes422ProxySupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_422_PROXY_CONTENT_TYPE);
+}
+
+export function isAppleProRes4444Supported() {
+    return isContentTypeSupported(APPLE_PRO_RES_4444_CONTENT_TYPE);
+}
+
+export function isAppleProRes4444XQSupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_4444_XQ_CONTENT_TYPE);
+}
+
+export function isAppleProResRAWSupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_RAW_CONTENT_TYPE);
+}
+
+export function isAppleProResRAWHQSupported() {
+    return isContentTypeSupported(APPLE_PRO_RES_RAW_HQ_CONTENT_TYPE);
 }

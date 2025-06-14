@@ -27,3 +27,15 @@ export const VVCI_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="vvci.1.L67.CQA.O0+3"
 
 export const EVC_BASELINE_CONTENT_TYPE = 'video/mp4; codecs="evc1.vprf0.vlev123"';
 export const EVC_MAIN_CONTENT_TYPE = 'video/mp4; codecs="evc1.vprf1.vlev153"';
+
+// Apple ProRes
+export const APPLE_PRO_RES_422_CONTENT_TYPE = 'video/quicktime; codecs="apcn"';
+export const APPLE_PRO_RES_422_HQ_CONTENT_TYPE = 'video/quicktime; codecs="apch"';
+export const APPLE_PRO_RES_422_LT_CONTENT_TYPE = 'video/quicktime; codecs="apcs"';
+export const APPLE_PRO_RES_422_PROXY_CONTENT_TYPE = 'video/quicktime; codecs="apco"';
+
+export const APPLE_PRO_RES_4444_CONTENT_TYPE = 'video/quicktime; codecs="ap4h"';
+export const APPLE_PRO_RES_4444_XQ_CONTENT_TYPE = 'video/quicktime; codecs="ap4x"';
+
+export const APPLE_PRO_RES_RAW_CONTENT_TYPE = 'video/quicktime; codecs="aprn"';
+export const APPLE_PRO_RES_RAW_HQ_CONTENT_TYPE = 'video/quicktime; codecs="aprh"';
