@@ -11,6 +11,8 @@ export const AV1_CONTENT_TYPE = 'video/mp4; codecs="av01.0.01M.08"';
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter
 export const AV1_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="av01.0.15M.10"';
 
+export const AV2_CONTENT_TYPE = 'video/mp4; codecs="av02.0.05M.08"';
+
 export const HEV_MAIN_CONTENT_TYPE = 'video/mp4; codecs="hev1.1.6.L123.B0"';
 export const HEV_MAIN10_CONTENT_TYPE = 'video/mp4; codecs="hev1.2.4.L153.B0"';
 
