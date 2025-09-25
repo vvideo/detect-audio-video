@@ -124,6 +124,8 @@ console.log('isNativeMpdSupported: ', isNativeMpdSupported()); // boolean
 - VP8
 - VP9
 - AV1
+- AV2
+- Apple ProRes
 
 ### 🔊 [Audio codecs](https://checkdevice.online/en/audio/)
 - AAC
