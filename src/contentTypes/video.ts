@@ -4,6 +4,11 @@ export const H264_HIGH_CONTENT_TYPE = 'video/mp4; codecs="avc1.64001E"';
 
 export const VP8_CONTENT_TYPE = 'video/webm; codecs="vp8"';
 export const VP9_CONTENT_TYPE = 'video/webm; codecs="vp9"';
+
+export const VP9_PROFILE0_CONTENT_TYPE = 'video/webm; codecs="vp09.00.10.08"';
+export const VP9_PROFILE1_CONTENT_TYPE = 'video/webm; codecs="vp09.01.10.08"';
+export const VP9_PROFILE2_CONTENT_TYPE = 'video/webm; codecs="vp09.02.10.10"';
+
 // https://googlechrome.github.io/samples/media/vp9-codec-string.html
 export const VP9_PROFILE2_LEVEL1_10BIT_CONTENT_TYPE = 'video/webm; codecs="vp09.02.10.10.01.09.16.09.01"';
 
