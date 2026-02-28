@@ -1,4 +1,7 @@
 # 4.6.0
+Added content types for different VP9 profiles.
+
+# 4.6.0
 Added AV2 content type.
 
 # 4.5.0

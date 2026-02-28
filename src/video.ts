@@ -26,6 +26,9 @@ import {
     APPLE_PRO_RES_4444_XQ_CONTENT_TYPE,
     APPLE_PRO_RES_RAW_CONTENT_TYPE,
     APPLE_PRO_RES_RAW_HQ_CONTENT_TYPE,
+    VP9_PROFILE0_CONTENT_TYPE,
+    VP9_PROFILE1_CONTENT_TYPE,
+    VP9_PROFILE2_CONTENT_TYPE,
 } from './contentTypes/video';
 import { isContentTypeSupported } from './utils/isContentTypeSupported';
 
@@ -35,6 +38,18 @@ export function isVp8Supported() {
 
 export function isVp9Supported() {
     return isContentTypeSupported(VP9_CONTENT_TYPE);
+}
+
+export function isVp9Profile0Supported() {
+    return isContentTypeSupported(VP9_PROFILE0_CONTENT_TYPE);
+}
+
+export function isVp9Profile1Supported() {
+    return isContentTypeSupported(VP9_PROFILE1_CONTENT_TYPE);
+}
+
+export function isVp9Profile2Supported() {
+    return isContentTypeSupported(VP9_PROFILE2_CONTENT_TYPE);
 }
 
 export function isVp9Profile2Level110BitSupported() {
