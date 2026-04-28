@@ -2,6 +2,7 @@
   "exclude": ["example", "./dist/**/*", "src/**/*.test.ts"],
   "extends": "./tsconfig.common.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "declaration": true,
     "declarationDir": "./dist"
   }
