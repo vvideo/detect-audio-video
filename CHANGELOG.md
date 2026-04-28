@@ -1,4 +1,7 @@
-# 4.6.0
+# 4.8.0
+Added helper for detect MacBook Neo `isMacBookNeo()`.
+
+# 4.7.0
 Added content types for different VP9 profiles.
 
 # 4.6.0
