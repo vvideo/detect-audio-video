@@ -1,3 +1,6 @@
+# 4.8.1
+Fix for typings.
+
 # 4.8.0
 Added helper for detect MacBook Neo `isMacBookNeo()`.
 
