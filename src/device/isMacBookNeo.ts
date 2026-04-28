@@ -1,5 +1,5 @@
-import { getGpuRenderer } from "../gpu";
-import { getScreenHeight, getScreenWidth } from "../screen";
+import { getGpuRenderer } from '../gpu';
+import { getScreenHeight, getScreenWidth } from '../screen/index';
 
 export function isMacBookNeo() {
     const isApple = /Macintosh|MacIntel/.test(navigator.userAgent);
