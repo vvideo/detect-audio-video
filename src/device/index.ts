@@ -8,3 +8,4 @@ export * from './isFirefox';
 export * from './getFirefoxVersion';
 export * from './isChromium';
 export * from './isPlayStation';
+export * from './isMacBookNeo';
