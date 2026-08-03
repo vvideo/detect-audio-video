@@ -9,4 +9,5 @@ export * from './range';
 export * from './colorSpace';
 export * from './getMaxTouchPoints';
 export * from './hasTouchScreen';
+export * from './has3dTouch';
 export * from './inches/index';

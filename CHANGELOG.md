@@ -1,3 +1,6 @@
+# 4.9.0
+Add `has3dTouch()`.
+
 # 4.8.1
 Fix for typings.
 

@@ -15,6 +15,7 @@ Detect audio and video features in browser.
 
 ### 🖥️ [Screen](https://checkdevice.online/en/screen/)
 - Size
+- 3D Touch
 - Device pixel ratio
 - HDR support
 - Wide gamut
